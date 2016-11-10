@@ -8,6 +8,7 @@ Provide a starting point for Spring / Angular applications with some goodies:
  - Spring Security
  - Spring Actuator
  - Spring Loaded
+ - Hystrix
  - Swagger
  - Lizenzliste
  - Asciidoctor
