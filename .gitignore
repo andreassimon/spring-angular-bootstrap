@@ -1,5 +1,6 @@
 .gradle
 /build/
+!/build/asciidoc/pdf
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

@@ -30,6 +30,8 @@ $ yum install git   # bis einschließlich Fedora 21
 $ dnf install git   # ab Fedora 22 aufwärts
 ----
 
+include::third-party-libraries.adoc[]
+
 [appendix,glossary]
 == Glossar
 

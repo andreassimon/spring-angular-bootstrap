@@ -8,18 +8,19 @@ buildscript {
     dependencies {
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
         classpath "org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.11"
+        classpath "gradle.plugin.com.github.jk1:gradle-license-report:0.3.5"
     }
 }
 
 plugins {
     id "org.springframework.boot" version "1.4.2.RELEASE"
-    id "org.nosphere.apache.rat" version "0.2.2"
-    id "com.github.jk1.dependency-license-report" version "0.3.4"
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'com.github.jk1.dependency-license-report'
+
 
 jar {
 	baseName = 'bootstrap'
@@ -44,6 +45,10 @@ dependencies {
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
 
+ext {
+    licenseReportFileName = "$projectDir/src/docs/asciidoc/third-party-libraries.adoc"
+}
+
 licenseReport {
     // Set output directory for the report data.
     // Defaults to ${project.buildDir}/reports/dependency-license.
@@ -59,8 +64,7 @@ licenseReport {
     // excludes = ['moduleGroup:moduleName']
 
     // Set custom report renderer, implementing ReportRenderer.
-    // Yes, you can write your own to support any format necessary.
-    // renderer = new XmlReportRenderer('third-party-libs.xml', 'Back-End Libraries')
+    renderer = new de.quagilis.license.render.AsciidocReportRenderer(licenseReportFileName, 'Third-party libraries')
 
     // Set importers to import any external dependency information, i.e. from npm.
     // Custom importer should implement DependencyDataImporter interface.
@@ -73,6 +77,7 @@ licenseReport {
 asciidoctor {
     group 'Documentation'
     dependsOn generateLicenseReport
+    inputs.file licenseReportFileName
 
     // The backends to use. Use backends to append. Use setBackends or backends=[] to overwrite Type: Set<String>, but
     // any type can be converted to String can be used. Default: [html5].
