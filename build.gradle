@@ -1,18 +1,11 @@
-buildscript {
-	ext {
-		springBootVersion = '1.4.2.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+plugins {
+    id "org.springframework.boot" version "1.4.2.RELEASE"
+    id "org.nosphere.apache.rat" version "0.2.2"
+    id 'com.github.jk1.dependency-license-report' version '0.3.4'
 }
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
 
 jar {
 	baseName = 'bootstrap'
@@ -25,13 +18,40 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-hateoas')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
+}
+
+licenseReport {
+    // Set output directory for the report data.
+    // Defaults to ${project.buildDir}/reports/dependency-license.
+    // outputDir = "$projectDir/build/licenses"
+
+    // List the groups ids to exclude from dependency report.
+    // By default project's own group is excluded.
+    // For finer granularity, see: excludes.
+    // excludeGroups = ['do.not.want']
+
+    // List the ids (in module:name format) to exclude from dependency report.
+    // By default excludes is empty.
+    // excludes = ['moduleGroup:moduleName']
+
+    // Set custom report renderer, implementing ReportRenderer.
+    // Yes, you can write your own to support any format necessary.
+    // renderer = new XmlReportRenderer('third-party-libs.xml', 'Back-End Libraries')
+
+    // Set importers to import any external dependency information, i.e. from npm.
+    // Custom importer should implement DependencyDataImporter interface.
+    // importers = [new XmlReportImporter('Frontend dependencies', file(frontend_libs.xml))]
+
+    // Adjust the configurations to use, e.g. for Android projects.
+    // configurations = ['compile']
 }
