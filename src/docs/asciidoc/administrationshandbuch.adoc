@@ -1,0 +1,38 @@
+= Bootstrap Administrationshandbuch
+:author!:
+:email!:
+:revnumber!:
+:revdate: 10. November 2016
+:toc:
+:toclevels: 4
+:appendix-caption: Anhang
+:toc-title: Inhaltsverzeichnis
+:chapter-label: Kapitel
+:source-highlighter: coderay
+:icons: font
+
+== Einstieg
+=== Architektur
+
+==== Git Setup
+Als Versionsverwaltungssystem kommt Git zum Einsatz.
+Dies steht für alle gängigen Linux-Distributionen über den Package Manager zur Verfügung.
+Anleitungen dazu gibt es unter https://git-scm.com/download/linux.
+
+Beispielsweise erfolgt die Installation unter _Debian/Ubuntu_ mittels
+----
+$ apt-get install git
+----
+
+und unter _Fedora_ mittels
+----
+$ yum install git   # bis einschließlich Fedora 21
+$ dnf install git   # ab Fedora 22 aufwärts
+----
+
+[appendix,glossary]
+== Glossar
+
+[glossary]
+Git:: Git is a free and open source distributed version control system designed to handle everything from small to
+      very large projects with speed and efficiency.

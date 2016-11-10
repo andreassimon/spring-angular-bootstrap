@@ -14,7 +14,7 @@ Provide a starting point for Spring / Angular applications with some goodies:
     - https://github.com/jk1/Gradle-License-Report
     - https://github.com/eskatos/creadur-rat-gradle
     - https://github.com/giancosta86/MoonLicense-Gradle
- - Asciidoctor
+ - [Asciidoctor](https://github.com/asciidoctor/asciidoctor-gradle-plugin)
  - JUnit 5
  - Gatling
  - (Groovy)
