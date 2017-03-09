@@ -74,9 +74,42 @@ licenseReport {
     // configurations = ['compile']
 }
 
+task frontendLicenses(group: 'Documentation') << {
+    File frontendLicensesFile = new File("src/docs/asciidoc/frontend-licenses.adoc")
+    frontendLicensesFile.text = ""
+    frontendLicensesFile << """\
+== Frontend Third-party libraries
+
+[cols="5,2,4",options="header"]
+|===
+| Name | Version | Lizenz
+"""
+    java.util.regex.Pattern regEx = ~/([^\t]*) \(([^\)]*)\)\t([^\t]*).*/
+    def reflectLine = "reflect-metadata (0.1.9)	unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)"
+    def angularLine = "@angular/common (2.2.1)	MIT License (http://www.opensource.org/licenses/MIT)	node_modules/@angular/common/package.json"
+    assert (reflectLine =~ regEx).matches()
+    assert (reflectLine =~ regEx)[0][1..3] == ['reflect-metadata', '0.1.9', 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)' ]
+    assert (angularLine =~ regEx).matches()
+    assert (angularLine =~ regEx)[0][1..3] == ['@angular/common', '2.2.1', 'MIT License (http://www.opensource.org/licenses/MIT)']
+
+    new File("angular/licenses.tsv").eachLine { line ->
+        def matcher = (line =~ regEx)
+        if(!matcher.matches()) {
+            throw new RuntimeException("Cannot match '$line'")
+        }
+        def packageName = matcher[0][1]
+        def packageVersion = matcher[0][2]
+        def packageLicense = matcher[0][3]
+
+        frontendLicensesFile << "| $packageName | $packageVersion | $packageLicense \n"
+    }
+
+    frontendLicensesFile << "|==="
+}
+
 asciidoctor {
     group 'Documentation'
-    dependsOn generateLicenseReport
+    dependsOn generateLicenseReport, frontendLicenses
     inputs.file licenseReportFileName
 
     // The backends to use. Use backends to append. Use setBackends or backends=[] to overwrite Type: Set<String>, but
