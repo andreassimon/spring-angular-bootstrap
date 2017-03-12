@@ -46,6 +46,40 @@ dependencies {
 }
 
 ext {
+    allowedLicenses = [
+        'Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)',
+        'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)',
+        'bsd 2 clause or mit or apache 2.0',
+        'bsd 3 clause and mit',
+        'BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)',
+        'BSD (http://opensource.org/licenses/BSD-3-Clause)',
+        'BSD 2-clause "Simplified" License (http://www.opensource.org/licenses/BSD-2-Clause)',
+        'BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)',
+        'Do What The F*ck You Want To Public License (http://sam.zoy.org/wtfpl/COPYING)',
+        'ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)',
+        'MIT (http  : //www.opensource.org/licenses/MIT)',
+        'MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)',
+        'MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)',
+        'MIT (http://github.com/jprichardson/node-fs-extra/raw/master/LICENSE)',
+        'MIT (http://lp.mit-license.org/)',
+        'MIT (http://opensource.org/licenses/MIT)',
+        'MIT (http://www.opensource.org/licenses/mit-license.php)',
+        'MIT (https://github.com/3rd-Eden/useragent/blob/master/LICENSE)',
+        'MIT (https://github.com/cowboy/node-exit/blob/master/LICENSE-MIT)',
+        'MIT (https://github.com/isaacs/nopt/raw/master/LICENSE)',
+        'MIT (https://github.com/jonschlinkert/braces/blob/master/LICENSE-MIT)',
+        'MIT (https://github.com/jonschlinkert/expand-range/blob/master/LICENSE-MIT)',
+        'MIT (https://github.com/jonschlinkert/is-number/blob/master/LICENSE-MIT)',
+        'MIT (https://github.com/jonschlinkert/repeat-string/blob/master/LICENSE-MIT)',
+        'MIT (https://github.com/mklabs/node-fileset/blob/master/LICENSE-MIT)',
+        'MIT (https://github.com/shinnn/inline-source-map-comment/blob/master/LICENSE)',
+        'MIT (https://github.com/trentmillar/md5-o-matic/blob/master/LICENSE)',
+        'MIT (https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt)',
+        'MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)',
+        'MIT License (http://www.opensource.org/licenses/MIT)',
+        'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)',
+        'zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)',
+    ]
     licenseReportFileName = "$projectDir/src/docs/asciidoc/third-party-libraries.adoc"
 }
 
@@ -80,28 +114,26 @@ task frontendLicenses(group: 'Documentation') << {
     frontendLicensesFile << """\
 == Frontend Third-party libraries
 
+=== Zugelassene Lizenzen:
+
+${allowedLicenses.collect { " * $it" }.join("\n")}
+
+=== Verwendete Bibliotheken
+
 [cols="5,2,4",options="header"]
 |===
 | Name | Version | Lizenz
 """
-    java.util.regex.Pattern regEx = ~/([^\t]*) \(([^\)]*)\)\t([^\t]*).*/
-    def reflectLine = "reflect-metadata (0.1.9)	unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)"
-    def angularLine = "@angular/common (2.2.1)	MIT License (http://www.opensource.org/licenses/MIT)	node_modules/@angular/common/package.json"
-    assert (reflectLine =~ regEx).matches()
-    assert (reflectLine =~ regEx)[0][1..3] == ['reflect-metadata', '0.1.9', 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)' ]
-    assert (angularLine =~ regEx).matches()
-    assert (angularLine =~ regEx)[0][1..3] == ['@angular/common', '2.2.1', 'MIT License (http://www.opensource.org/licenses/MIT)']
-
     new File("angular/licenses.tsv").eachLine { line ->
-        def matcher = (line =~ regEx)
-        if(!matcher.matches()) {
-            throw new RuntimeException("Cannot match '$line'")
-        }
-        def packageName = matcher[0][1]
-        def packageVersion = matcher[0][2]
-        def packageLicense = matcher[0][3]
-
-        frontendLicensesFile << "| $packageName | $packageVersion | $packageLicense \n"
+        //noinspection UnnecessaryQualifiedReference
+        java.util.Optional<de.quagilis.license.Library> optionalLibrary = de.quagilis.license.DependencyParser.fromNpmLine(line)
+        optionalLibrary.orElseThrow({ new RuntimeException("Cannot match '$line'") })
+        optionalLibrary.ifPresent({ de.quagilis.license.Library library ->
+            if(!allowedLicenses.contains(library.licenses[0].name)) {
+                logger.warn "'${library.name}' uses forbidden license '${library.licenses[0].name}'"
+            }
+            frontendLicensesFile << "| ${library.name} | ${library.version} | ${library.licenses[0].name}(${library.licenses[0].links[0]}) \n"
+        })
     }
 
     frontendLicensesFile << "|==="

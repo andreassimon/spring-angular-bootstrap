@@ -33,6 +33,12 @@ $ dnf install git   # ab Fedora 22 aufwärts
 include::third-party-libraries.adoc[]
 include::frontend-licenses.adoc[]
 
+[appendix]
+
+== Lizenztexte
+
+include::apache-2.0.adoc[leveloffset=+2]
+
 [appendix,glossary]
 == Glossar
 
