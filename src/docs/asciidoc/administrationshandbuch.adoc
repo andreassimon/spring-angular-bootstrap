@@ -30,7 +30,12 @@ $ yum install git   # bis einschließlich Fedora 21
 $ dnf install git   # ab Fedora 22 aufwärts
 ----
 
-include::third-party-libraries.adoc[]
+== Third-party libraries
+
+include::allowed-licenses.adoc[]
+
+include::backend-licenses.adoc[]
+
 include::frontend-licenses.adoc[]
 
 [appendix]

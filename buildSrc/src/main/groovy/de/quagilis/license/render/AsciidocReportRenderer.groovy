@@ -29,7 +29,7 @@ class AsciidocReportRenderer implements ReportRenderer {
         config = project.licenseReport
         output = new File(fileName)
 
-        output.text = "== $chapterName\n\n"
+        output.text = "=== $chapterName\n\n"
 
         output << tableHeader()
         data.allDependencies.sort().each {

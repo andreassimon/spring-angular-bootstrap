@@ -1,0 +1,9 @@
+=== Zugelassene Lizenzen
+
+ * 2-Clause BSD License
+ * 3-Clause BSD License
+ * Apache License 2.0
+ * Do What The F*ck You Want To Public License
+ * ISC License
+ * MIT License
+ * The zlib/libpng License

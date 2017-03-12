@@ -83,7 +83,7 @@ ext {
         ('unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'): License.Apache2(),
         ('zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)'): License.Zlib(),
     ]
-    licenseReportFileName = "$projectDir/src/docs/asciidoc/third-party-libraries.adoc"
+    licenseReportFileName = "$projectDir/src/docs/asciidoc/backend-licenses.adoc"
 }
 
 licenseReport {
@@ -101,7 +101,7 @@ licenseReport {
     // excludes = ['moduleGroup:moduleName']
 
     // Set custom report renderer, implementing ReportRenderer.
-    renderer = new de.quagilis.license.render.AsciidocReportRenderer(licenseReportFileName, 'Third-party libraries')
+    renderer = new de.quagilis.license.render.AsciidocReportRenderer(licenseReportFileName, 'Backend')
 
     // Set importers to import any external dependency information, i.e. from npm.
     // Custom importer should implement DependencyDataImporter interface.
@@ -119,36 +119,34 @@ License normalizeLicenses(String library, String licenses) {
 }
 
 task frontendLicenses(group: 'Documentation') << {
-    File frontendLicensesFile = new File("src/docs/asciidoc/frontend-licenses.adoc")
-    frontendLicensesFile.text = ""
-    frontendLicensesFile << """\
-== Frontend Third-party libraries
-
-=== Zugelassene Lizenzen:
+    new File('src/docs/asciidoc/allowed-licenses.adoc').text = """\
+=== Zugelassene Lizenzen
 
 ${ ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.unique().sort().join("\n") }
-
-=== Verwendete Bibliotheken
-
-[cols="5,2,4",options="header"]
-|===
-| Name | Version | Lizenz
 """
+
+    List<de.quagilis.license.Library> frontendLibraries = []
     new File("angular/licenses.tsv").eachLine { line ->
         def matcher = (line =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
         if (!matcher.matches()) {
             throw new RuntimeException("Cannot match '$line'")
         }
-        def library = new de.quagilis.license.Library(
+        frontendLibraries << new de.quagilis.license.Library(
             name: matcher[0][1] as String,
             version: matcher[0][2] as String,
             licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String).reference
         )
-
-        frontendLicensesFile << "| ${library.name} | ${library.version} | ${library.licenseReference}\n"
     }
 
-    frontendLicensesFile << "|==="
+    new File("src/docs/asciidoc/frontend-licenses.adoc").text = """\
+=== Frontend
+
+[cols="5,2,6",options="header"]
+|===
+| Name | Version | Lizenz
+${ ((List<License>) frontendLibraries).collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
+|===
+"""
 }
 
 asciidoctor {
