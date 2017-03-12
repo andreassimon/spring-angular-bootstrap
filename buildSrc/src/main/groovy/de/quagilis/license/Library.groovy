@@ -6,6 +6,6 @@ import groovy.transform.Immutable
 class Library {
     String name
     String version
-    Collection<License> licenses
+    String licenseReference
 }
 

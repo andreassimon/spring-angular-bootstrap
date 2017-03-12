@@ -2,322 +2,297 @@
 
 === Zugelassene Lizenzen:
 
- * Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)
- * Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)
- * bsd 2 clause or mit or apache 2.0
- * bsd 3 clause and mit
- * BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)
- * BSD (http://opensource.org/licenses/BSD-3-Clause)
- * BSD 2-clause "Simplified" License (http://www.opensource.org/licenses/BSD-2-Clause)
- * BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)
- * Do What The F*ck You Want To Public License (http://sam.zoy.org/wtfpl/COPYING)
- * ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)
- * MIT (http  : //www.opensource.org/licenses/MIT)
- * MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)
- * MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)
- * MIT (http://github.com/jprichardson/node-fs-extra/raw/master/LICENSE)
- * MIT (http://lp.mit-license.org/)
- * MIT (http://opensource.org/licenses/MIT)
- * MIT (http://www.opensource.org/licenses/mit-license.php)
- * MIT (https://github.com/3rd-Eden/useragent/blob/master/LICENSE)
- * MIT (https://github.com/cowboy/node-exit/blob/master/LICENSE-MIT)
- * MIT (https://github.com/isaacs/nopt/raw/master/LICENSE)
- * MIT (https://github.com/jonschlinkert/braces/blob/master/LICENSE-MIT)
- * MIT (https://github.com/jonschlinkert/expand-range/blob/master/LICENSE-MIT)
- * MIT (https://github.com/jonschlinkert/is-number/blob/master/LICENSE-MIT)
- * MIT (https://github.com/jonschlinkert/repeat-string/blob/master/LICENSE-MIT)
- * MIT (https://github.com/mklabs/node-fileset/blob/master/LICENSE-MIT)
- * MIT (https://github.com/shinnn/inline-source-map-comment/blob/master/LICENSE)
- * MIT (https://github.com/trentmillar/md5-o-matic/blob/master/LICENSE)
- * MIT (https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt)
- * MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)
- * MIT License (http://www.opensource.org/licenses/MIT)
- * unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)
- * zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)
+ * 2-Clause BSD License
+ * 3-Clause BSD License
+ * Apache License 2.0
+ * Do What The F*ck You Want To Public License
+ * ISC License
+ * MIT License
+ * The zlib/libpng License
 
 === Verwendete Bibliotheken
 
 [cols="5,2,4",options="header"]
 |===
 | Name | Version | Lizenz
-| @angular/common | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/compiler-cli | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/compiler | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/core | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/forms | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/http | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/platform-browser-dynamic | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/platform-browser | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @angular/router | 3.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @types/jasmine | 2.5.38 | MIT License(http://www.opensource.org/licenses/MIT) 
-| @types/node | 6.0.55 | MIT License(http://www.opensource.org/licenses/MIT) 
-| abbrev | 1.0.9 | ISC License(http://www.isc.org/software/license) 
-| acorn | 3.3.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| adm-zip | 0.4.4 | MIT(https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt) 
-| amdefine | 1.0.0 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| angular-cli | 1.0.0-beta.21 | MIT License(http://www.opensource.org/licenses/MIT) 
-| angular2-template-loader | 0.5.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| angular | 0.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| ansi-escapes | 1.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| ansi-regex | 1.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| ansicolors | 0.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| aproba | 1.0.4 | ISC License(http://www.isc.org/software/license) 
-| are-we-there-yet | 1.1.2 | ISC License(http://www.isc.org/software/license) 
-| array-equal | 1.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| array-index | 1.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| array-to-error | 1.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| async-disk-cache | 1.0.9 | MIT License(http://www.opensource.org/licenses/MIT) 
-| async-foreach | 0.1.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| async | 0.9.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| async | 1.5.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| async | 2.1.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| awesome-typescript-loader | 2.2.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| babel-runtime | 6.20.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| binaryextensions | 2.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| block-stream | 0.0.9 | ISC License(http://www.isc.org/software/license) 
-| bluebird | 3.4.7 | MIT License(http://www.opensource.org/licenses/MIT) 
-| body-parser | 1.15.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| braces | 0.1.5 | MIT(https://github.com/jonschlinkert/braces/blob/master/LICENSE-MIT) 
-| broccoli-clean-css | 1.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| broccoli-funnel | 1.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| broccoli-kitchen-sink-helpers | 0.3.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| broccoli-persistent-filter | 1.2.13 | MIT License(http://www.opensource.org/licenses/MIT) 
-| bytes | 2.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| cardinal | 0.5.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| charenc | 0.0.2 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| clean-css-promise | 0.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| cli-cursor | 1.0.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| cli-spinners | 0.1.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| cli-table | 0.3.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| cli-width | 2.1.0 | ISC License(http://www.isc.org/software/license) 
-| cliui | 3.2.0 | ISC License(http://www.isc.org/software/license) 
-| codelyzer | 1.0.0-beta.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| coffee-script | 1.7.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| colors | 0.6.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| colors | 1.0.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| combine-lists | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| commander | 2.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| common-tags | 1.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| compression-webpack-plugin | 0.3.2 | MIT(http://www.opensource.org/licenses/mit-license.php) 
-| configstore | 2.1.0 | 2-Clause BSD License(http://www.opensource.org/licenses/BSD-2-Clause) 
-| console-control-strings | 1.1.0 | ISC License(http://www.isc.org/software/license) 
-| content-type | 1.0.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| core-js | 2.4.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| crypt | 0.0.2 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| css-parse | 1.7.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| css-selector-tokenizer | 0.7.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| cssauron | 1.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| custom-event | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| d | 0.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| debug | 2.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| deep-extend | 0.4.1 | MIT(https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE) 
-| defaults | 1.0.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| delegates | 1.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| denodeify | 1.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| di | 0.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| dom-serialize | 2.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| dot-prop | 3.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| editions | 1.3.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| ember-cli-normalize-entity-name | 1.0.0 | ISC License(http://www.isc.org/software/license) 
-| ember-cli-preprocess-registry | 2.0.0 | ISC License(http://www.isc.org/software/license) 
-| ember-cli-string-utils | 1.0.0 | ISC License(http://www.isc.org/software/license) 
-| ent | 2.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| es5-ext | 0.10.12 | MIT License(http://www.opensource.org/licenses/MIT) 
-| es6-iterator | 2.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| es6-symbol | 3.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| esprima-fb | 12001.1.0-dev-harmony-fb | BSD(http://github.com/facebook/esprima/raw/master/LICENSE.BSD) 
-| exists-sync | 0.0.3 | ISC License(http://www.isc.org/software/license) 
-| exists-sync | 0.0.4 | ISC License(http://www.isc.org/software/license) 
-| exit-hook | 1.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| exit | 0.1.2 | MIT(https://github.com/cowboy/node-exit/blob/master/LICENSE-MIT) 
-| expand-braces | 0.1.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| expand-range | 0.1.1 | MIT(https://github.com/jonschlinkert/expand-range/blob/master/LICENSE-MIT) 
-| figures | 1.7.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| fileset | 0.2.1 | MIT(https://github.com/mklabs/node-fileset/blob/master/LICENSE-MIT) 
-| findup | 0.1.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| form-data | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| fs-extra | 0.16.5 | MIT(http://github.com/jprichardson/node-fs-extra/raw/master/LICENSE) 
-| fstream-ignore | 1.0.5 | ISC License(http://www.isc.org/software/license) 
-| fstream | 1.0.10 | ISC License(http://www.isc.org/software/license) 
-| gauge | 2.6.0 | ISC License(http://www.isc.org/software/license) 
-| gauge | 2.7.2 | ISC License(http://www.isc.org/software/license) 
-| gaze | 1.1.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| git-repo-info | 1.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| glob | 3.2.11 | 2-Clause BSD License(http://www.opensource.org/licenses/BSD-2-Clause) 
-| glob | 5.0.15 | ISC License(http://www.isc.org/software/license) 
-| glob | 6.0.4 | ISC License(http://www.isc.org/software/license) 
-| glob | 7.0.6 | ISC License(http://www.isc.org/software/license) 
-| globule | 1.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| graceful-fs | 3.0.11 | ISC License(http://www.isc.org/software/license) 
-| handlebars | 4.0.6 | MIT License(http://www.opensource.org/licenses/MIT) 
-| has-color | 0.1.7 | MIT License(http://www.opensource.org/licenses/MIT) 
-| has-unicode | 2.0.1 | ISC License(http://www.isc.org/software/license) 
-| hash-for-dep | 1.1.2 | ISC License(http://www.isc.org/software/license) 
-| imurmurhash | 0.1.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| inflection | 1.10.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| inline-source-map-comment | 1.0.5 | MIT(https://github.com/shinnn/inline-source-map-comment/blob/master/LICENSE) 
-| inquirer | 0.12.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| is-git-url | 0.2.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| is-number | 0.1.1 | MIT(https://github.com/jonschlinkert/is-number/blob/master/LICENSE-MIT) 
-| is-obj | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| isarray | 0.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| isbinaryfile | 2.0.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| isbinaryfile | 3.0.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| istanbul-instrumenter-loader | 0.2.0 | Do What The F*ck You Want To Public License(http://sam.zoy.org/wtfpl/COPYING) 
-| istanbul | 0.4.3 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| istanbul | 0.4.5 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| istextorbinary | 2.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| jasmine-core | 2.4.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| jasmine-core | 2.5.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| jasmine-spec-reporter | 2.5.0 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| jasmine | 2.4.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| jasmine | 2.5.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| jasminewd2 | 0.0.10 | MIT License(http://www.opensource.org/licenses/MIT) 
-| jasminewd2 | 0.0.9 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma-chrome-launcher | 2.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma-cli | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma-coffee-preprocessor | 0.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma-jasmine | 1.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma-remap-istanbul | 0.2.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma-requirejs | 0.2.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| karma | 1.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| leek | 0.0.21 | MIT License(http://www.opensource.org/licenses/MIT) 
-| licensecheck | 1.3.0 | zlib License(http://www.zlib.net/zlib_license.html) 
-| linkify-it | 1.2.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._arraycopy | 3.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._arrayeach | 3.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._baseassign | 3.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._basecallback | 3.3.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._baseeach | 3.0.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._basefind | 3.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._basefindindex | 3.6.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._basefor | 3.0.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._baseisequal | 3.0.7 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._bindcallback | 3.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash._createassigner | 3.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.assign | 3.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.assign | 4.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.clonedeep | 4.5.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.find | 3.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.isequal | 4.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.isplainobject | 3.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.istypedarray | 3.0.6 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.keysin | 3.0.8 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.merge | 3.3.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.pairs | 3.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash.toplainobject | 3.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash | 3.10.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| lodash | 4.16.6 | MIT License(http://www.opensource.org/licenses/MIT) 
-| log4js | 0.6.38 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| lru-cache | 2.2.4 | MIT(http://github.com/isaacs/node-lru-cache/raw/master/LICENSE) 
-| lru-cache | 2.7.3 | ISC License(http://www.isc.org/software/license) 
-| markdown-it-terminal | 0.0.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| markdown-it | 4.3.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| markdown-it | 4.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| markdown | 0.5.0 | MIT(http://www.opensource.org/licenses/mit-license.php) 
-| md5-hex | 1.3.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| md5-o-matic | 0.1.1 | MIT(https://github.com/trentmillar/md5-o-matic/blob/master/LICENSE) 
-| md5 | 2.2.1 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| mdurl | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| minimatch | 0.3.0 | MIT(http://github.com/isaacs/minimatch/raw/master/LICENSE) 
-| mkdirp | 0.3.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| mute-stream | 0.0.4 | 2-Clause BSD License(http://www.opensource.org/licenses/BSD-2-Clause) 
-| mute-stream | 0.0.5 | ISC License(http://www.isc.org/software/license) 
-| nan | 2.5.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| natives | 1.1.0 | ISC License(http://www.isc.org/software/license) 
-| node-gyp | 3.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| node-modules-path | 1.0.1 | ISC License(http://www.isc.org/software/license) 
-| node-pre-gyp | 0.6.32 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| node-sass | 3.13.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| node-zopfli | 2.0.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| nopt | 2.1.2 | MIT(https://github.com/isaacs/nopt/raw/master/LICENSE) 
-| nopt | 3.0.6 | ISC License(http://www.isc.org/software/license) 
-| npmlog | 3.1.2 | ISC License(http://www.isc.org/software/license) 
-| npmlog | 4.0.2 | ISC License(http://www.isc.org/software/license) 
-| offline-plugin | 3.4.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| once | 1.3.3 | ISC License(http://www.isc.org/software/license) 
-| onetime | 1.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| ora | 0.2.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| os-homedir | 1.0.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| osenv | 0.1.4 | ISC License(http://www.isc.org/software/license) 
-| parse5 | 2.2.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| path-array | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| portfinder | 1.0.9 | MIT License(http://www.opensource.org/licenses/MIT) 
-| postcss-loader | 0.9.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| process-relative-require | 1.0.0 | ISC License(http://www.isc.org/software/license) 
-| protractor | 3.3.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| protractor | 4.0.9 | MIT License(http://www.opensource.org/licenses/MIT) 
-| qjobs | 1.1.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| qs | 5.2.1 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| qs | 6.2.0 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| rc | 1.1.6 | 2-Clause BSD License(http://www.opensource.org/licenses/BSD-2-Clause) 
-| readable-stream | 1.0.34 | MIT License(http://www.opensource.org/licenses/MIT) 
-| readable-stream | 2.1.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| readline2 | 0.1.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| readline2 | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| redeyed | 0.5.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| reflect-metadata | 0.1.9 | unknown(http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE) 
-| regenerator-runtime | 0.10.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| remap-istanbul | 0.6.4 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| repeat-string | 0.2.2 | MIT(https://github.com/jonschlinkert/repeat-string/blob/master/LICENSE-MIT) 
-| request | 2.67.0 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| resolve | 1.1.7 | MIT License(http://www.opensource.org/licenses/MIT) 
-| restore-cursor | 1.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| run-async | 0.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| rx-lite | 3.1.2 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| rxjs | 5.0.0-beta.12 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| sass-graph | 2.1.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| sass-loader | 3.2.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| saucelabs | 1.3.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| sax | 0.5.8 | 2-Clause BSD License(http://www.opensource.org/licenses/BSD-2-Clause) 
-| selenium-webdriver | 2.52.0 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| selenium-webdriver | 2.53.3 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| semver | 4.3.6 | ISC License(http://www.isc.org/software/license) 
-| sigmund | 1.0.1 | ISC License(http://www.isc.org/software/license) 
-| silent-error | 1.0.1 | ISC License(http://www.isc.org/software/license) 
-| slide | 1.1.6 | ISC License(http://www.isc.org/software/license) 
-| source-map-loader | 0.1.5 | MIT(http://www.opensource.org/licenses/mit-license.php) 
-| source-map-support | 0.4.8 | MIT License(http://www.opensource.org/licenses/MIT) 
-| source-map | 0.1.43 | BSD(http://opensource.org/licenses/BSD-3-Clause) 
-| source-map | 0.5.6 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| sourcemap-istanbul-instrumenter-loader | 0.2.0 | Do What The F*ck You Want To Public License(http://sam.zoy.org/wtfpl/COPYING) 
-| spdx-license-list | 2.1.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| string-replace-loader | 1.0.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| strip-ansi | 2.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| strip-json-comments | 1.0.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| strip-json-comments | 2.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| stylus-loader | 2.4.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| stylus | 0.54.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| sum-up | 1.0.3 | MIT License(http://www.opensource.org/licenses/MIT) 
-| supports-color | 0.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| supports-color | 3.1.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| tar-pack | 3.3.0 | 2-Clause BSD License(http://www.opensource.org/licenses/BSD-2-Clause) 
-| tar | 2.2.1 | ISC License(http://www.isc.org/software/license) 
-| textextensions | 2.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| tmp | 0.0.24 | MIT(http://opensource.org/licenses/MIT) 
-| tough-cookie | 2.2.2 | 3-Clause BSD License(https://opensource.org/licenses/BSD-3-Clause) 
-| treeify | 1.0.1 | MIT(http://lp.mit-license.org/) 
-| ts-helpers | 1.1.2 | MIT License(http://www.opensource.org/licenses/MIT) 
-| ts-node | 1.2.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| tslint-loader | 2.1.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| tslint | 3.13.0 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| tslint | 3.15.1 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| typescript | 2.0.10 | Apache License 2.0(http://www.apache.org/licenses/LICENSE-2.0) 
-| uc.micro | 1.0.3 | Do What The F*ck You Want To Public License(http://sam.zoy.org/wtfpl/COPYING) 
-| uid-number | 0.0.6 | ISC License(http://www.isc.org/software/license) 
-| underscore.string | 3.3.4 | MIT License(http://www.opensource.org/licenses/MIT) 
-| useragent | 2.1.10 | MIT(https://github.com/3rd-Eden/useragent/blob/master/LICENSE) 
-| void-elements | 2.0.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| walk-sync | 0.3.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| webdriver-manager | 10.2.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| webpack-md5-hash | 0.0.5 | MIT License(http://www.opensource.org/licenses/MIT) 
-| webpack-merge | 0.14.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| wide-align | 1.1.0 | ISC License(http://www.isc.org/software/license) 
-| window-size | 0.2.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| wordwrap | 1.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| write-file-atomic | 1.2.0 | ISC License(http://www.isc.org/software/license) 
-| xdg-basedir | 2.0.0 | MIT License(http://www.opensource.org/licenses/MIT) 
-| yam | 0.0.18 | MIT License(http://www.opensource.org/licenses/MIT) 
-| yargs | 4.8.1 | MIT License(http://www.opensource.org/licenses/MIT) 
-| zone.js | 0.6.26 | MIT License(http://www.opensource.org/licenses/MIT) 
+| @angular/common | 2.2.1 | <<mit>>
+| @angular/compiler-cli | 2.2.1 | <<mit>>
+| @angular/compiler | 2.2.1 | <<mit>>
+| @angular/core | 2.2.1 | <<mit>>
+| @angular/forms | 2.2.1 | <<mit>>
+| @angular/http | 2.2.1 | <<mit>>
+| @angular/platform-browser-dynamic | 2.2.1 | <<mit>>
+| @angular/platform-browser | 2.2.1 | <<mit>>
+| @angular/router | 3.2.1 | <<mit>>
+| @types/jasmine | 2.5.38 | <<mit>>
+| @types/node | 6.0.55 | <<mit>>
+| abbrev | 1.0.9 | <<isc>>
+| acorn | 3.3.0 | <<mit>>
+| adm-zip | 0.4.4 | <<mit>>
+| amdefine | 1.0.0 | <<mit>>
+| angular-cli | 1.0.0-beta.21 | <<mit>>
+| angular2-template-loader | 0.5.0 | <<mit>>
+| angular | 0.0.0 | <<mit>>
+| ansi-escapes | 1.4.0 | <<mit>>
+| ansi-regex | 1.1.1 | <<mit>>
+| ansicolors | 0.2.1 | <<mit>>
+| aproba | 1.0.4 | <<isc>>
+| are-we-there-yet | 1.1.2 | <<isc>>
+| array-equal | 1.0.0 | <<mit>>
+| array-index | 1.0.0 | <<mit>>
+| array-to-error | 1.1.1 | <<mit>>
+| async-disk-cache | 1.0.9 | <<mit>>
+| async-foreach | 0.1.3 | <<mit>>
+| async | 0.9.2 | <<mit>>
+| async | 1.5.2 | <<mit>>
+| async | 2.1.4 | <<mit>>
+| awesome-typescript-loader | 2.2.4 | <<mit>>
+| babel-runtime | 6.20.0 | <<mit>>
+| binaryextensions | 2.0.0 | <<mit>>
+| block-stream | 0.0.9 | <<isc>>
+| bluebird | 3.4.7 | <<mit>>
+| body-parser | 1.15.2 | <<mit>>
+| braces | 0.1.5 | <<mit>>
+| broccoli-clean-css | 1.1.0 | <<mit>>
+| broccoli-funnel | 1.1.0 | <<mit>>
+| broccoli-kitchen-sink-helpers | 0.3.1 | <<mit>>
+| broccoli-persistent-filter | 1.2.13 | <<mit>>
+| bytes | 2.4.0 | <<mit>>
+| cardinal | 0.5.0 | <<mit>>
+| charenc | 0.0.2 | <<bsd-3-clause>>
+| clean-css-promise | 0.1.1 | <<mit>>
+| cli-cursor | 1.0.2 | <<mit>>
+| cli-spinners | 0.1.2 | <<mit>>
+| cli-table | 0.3.1 | <<mit>>
+| cli-width | 2.1.0 | <<isc>>
+| cliui | 3.2.0 | <<isc>>
+| codelyzer | 1.0.0-beta.4 | <<mit>>
+| coffee-script | 1.7.1 | <<mit>>
+| colors | 0.6.2 | <<mit>>
+| colors | 1.0.3 | <<mit>>
+| combine-lists | 1.0.1 | <<mit>>
+| commander | 2.1.0 | <<mit>>
+| common-tags | 1.4.0 | <<mit>>
+| compression-webpack-plugin | 0.3.2 | <<mit>>
+| configstore | 2.1.0 | <<bsd-2-clause>>
+| console-control-strings | 1.1.0 | <<isc>>
+| content-type | 1.0.2 | <<mit>>
+| core-js | 2.4.1 | <<mit>>
+| crypt | 0.0.2 | <<bsd-3-clause>>
+| css-parse | 1.7.0 | <<mit>>
+| css-selector-tokenizer | 0.7.0 | <<mit>>
+| cssauron | 1.4.0 | <<mit>>
+| custom-event | 1.0.1 | <<mit>>
+| d | 0.1.1 | <<mit>>
+| debug | 2.2.0 | <<mit>>
+| deep-extend | 0.4.1 | <<mit>>
+| defaults | 1.0.3 | <<mit>>
+| delegates | 1.0.0 | <<mit>>
+| denodeify | 1.2.1 | <<mit>>
+| di | 0.0.1 | <<mit>>
+| dom-serialize | 2.2.1 | <<mit>>
+| dot-prop | 3.0.0 | <<mit>>
+| editions | 1.3.3 | <<mit>>
+| ember-cli-normalize-entity-name | 1.0.0 | <<isc>>
+| ember-cli-preprocess-registry | 2.0.0 | <<isc>>
+| ember-cli-string-utils | 1.0.0 | <<isc>>
+| ent | 2.2.0 | <<mit>>
+| es5-ext | 0.10.12 | <<mit>>
+| es6-iterator | 2.0.0 | <<mit>>
+| es6-symbol | 3.1.0 | <<mit>>
+| esprima-fb | 12001.1.0-dev-harmony-fb | <<bsd-2-clause>>
+| exists-sync | 0.0.3 | <<isc>>
+| exists-sync | 0.0.4 | <<isc>>
+| exit-hook | 1.1.1 | <<mit>>
+| exit | 0.1.2 | <<mit>>
+| expand-braces | 0.1.2 | <<mit>>
+| expand-range | 0.1.1 | <<mit>>
+| figures | 1.7.0 | <<mit>>
+| fileset | 0.2.1 | <<mit>>
+| findup | 0.1.5 | <<mit>>
+| form-data | 1.0.1 | <<mit>>
+| fs-extra | 0.16.5 | <<mit>>
+| fstream-ignore | 1.0.5 | <<isc>>
+| fstream | 1.0.10 | <<isc>>
+| gauge | 2.6.0 | <<isc>>
+| gauge | 2.7.2 | <<isc>>
+| gaze | 1.1.2 | <<mit>>
+| git-repo-info | 1.4.0 | <<mit>>
+| glob | 3.2.11 | <<bsd-2-clause>>
+| glob | 5.0.15 | <<isc>>
+| glob | 6.0.4 | <<isc>>
+| glob | 7.0.6 | <<isc>>
+| globule | 1.1.0 | <<mit>>
+| graceful-fs | 3.0.11 | <<isc>>
+| handlebars | 4.0.6 | <<mit>>
+| has-color | 0.1.7 | <<mit>>
+| has-unicode | 2.0.1 | <<isc>>
+| hash-for-dep | 1.1.2 | <<isc>>
+| imurmurhash | 0.1.4 | <<mit>>
+| inflection | 1.10.0 | <<mit>>
+| inline-source-map-comment | 1.0.5 | <<mit>>
+| inquirer | 0.12.0 | <<mit>>
+| is-git-url | 0.2.3 | <<mit>>
+| is-number | 0.1.1 | <<mit>>
+| is-obj | 1.0.1 | <<mit>>
+| isarray | 0.0.1 | <<mit>>
+| isbinaryfile | 2.0.4 | <<mit>>
+| isbinaryfile | 3.0.2 | <<mit>>
+| istanbul-instrumenter-loader | 0.2.0 | <<do-what-the-fuck-you-want-license>>
+| istanbul | 0.4.3 | <<bsd-3-clause>>
+| istanbul | 0.4.5 | <<bsd-3-clause>>
+| istextorbinary | 2.1.0 | <<mit>>
+| jasmine-core | 2.4.1 | <<mit>>
+| jasmine-core | 2.5.2 | <<mit>>
+| jasmine-spec-reporter | 2.5.0 | <<apache-2.0>>
+| jasmine | 2.4.1 | <<mit>>
+| jasmine | 2.5.2 | <<mit>>
+| jasminewd2 | 0.0.10 | <<mit>>
+| jasminewd2 | 0.0.9 | <<mit>>
+| karma-chrome-launcher | 2.0.0 | <<mit>>
+| karma-cli | 1.0.1 | <<mit>>
+| karma-coffee-preprocessor | 0.2.1 | <<mit>>
+| karma-jasmine | 1.1.0 | <<mit>>
+| karma-remap-istanbul | 0.2.2 | <<mit>>
+| karma-requirejs | 0.2.2 | <<mit>>
+| karma | 1.2.0 | <<mit>>
+| leek | 0.0.21 | <<mit>>
+| licensecheck | 1.3.0 | <<zlib>>
+| linkify-it | 1.2.4 | <<mit>>
+| lodash._arraycopy | 3.0.0 | <<mit>>
+| lodash._arrayeach | 3.0.0 | <<mit>>
+| lodash._baseassign | 3.2.0 | <<mit>>
+| lodash._basecallback | 3.3.1 | <<mit>>
+| lodash._baseeach | 3.0.4 | <<mit>>
+| lodash._basefind | 3.0.0 | <<mit>>
+| lodash._basefindindex | 3.6.0 | <<mit>>
+| lodash._basefor | 3.0.3 | <<mit>>
+| lodash._baseisequal | 3.0.7 | <<mit>>
+| lodash._bindcallback | 3.0.1 | <<mit>>
+| lodash._createassigner | 3.1.1 | <<mit>>
+| lodash.assign | 3.2.0 | <<mit>>
+| lodash.assign | 4.2.0 | <<mit>>
+| lodash.clonedeep | 4.5.0 | <<mit>>
+| lodash.find | 3.2.1 | <<mit>>
+| lodash.isequal | 4.4.0 | <<mit>>
+| lodash.isplainobject | 3.2.0 | <<mit>>
+| lodash.istypedarray | 3.0.6 | <<mit>>
+| lodash.keysin | 3.0.8 | <<mit>>
+| lodash.merge | 3.3.2 | <<mit>>
+| lodash.pairs | 3.0.1 | <<mit>>
+| lodash.toplainobject | 3.0.0 | <<mit>>
+| lodash | 3.10.1 | <<mit>>
+| lodash | 4.16.6 | <<mit>>
+| log4js | 0.6.38 | <<apache-2.0>>
+| lru-cache | 2.2.4 | <<mit>>
+| lru-cache | 2.7.3 | <<isc>>
+| markdown-it-terminal | 0.0.3 | <<mit>>
+| markdown-it | 4.3.0 | <<mit>>
+| markdown-it | 4.4.0 | <<mit>>
+| markdown | 0.5.0 | <<mit>>
+| md5-hex | 1.3.0 | <<mit>>
+| md5-o-matic | 0.1.1 | <<mit>>
+| md5 | 2.2.1 | <<bsd-3-clause>>
+| mdurl | 1.0.1 | <<mit>>
+| minimatch | 0.3.0 | <<mit>>
+| mkdirp | 0.3.5 | <<mit>>
+| mute-stream | 0.0.4 | <<bsd-2-clause>>
+| mute-stream | 0.0.5 | <<isc>>
+| nan | 2.5.0 | <<mit>>
+| natives | 1.1.0 | <<isc>>
+| node-gyp | 3.4.0 | <<mit>>
+| node-modules-path | 1.0.1 | <<isc>>
+| node-pre-gyp | 0.6.32 | <<bsd-3-clause>>
+| node-sass | 3.13.1 | <<mit>>
+| node-zopfli | 2.0.2 | <<mit>>
+| nopt | 2.1.2 | <<mit>>
+| nopt | 3.0.6 | <<isc>>
+| npmlog | 3.1.2 | <<isc>>
+| npmlog | 4.0.2 | <<isc>>
+| offline-plugin | 3.4.2 | <<mit>>
+| once | 1.3.3 | <<isc>>
+| onetime | 1.1.0 | <<mit>>
+| ora | 0.2.3 | <<mit>>
+| os-homedir | 1.0.2 | <<mit>>
+| osenv | 0.1.4 | <<isc>>
+| parse5 | 2.2.3 | <<mit>>
+| path-array | 1.0.1 | <<mit>>
+| portfinder | 1.0.9 | <<mit>>
+| postcss-loader | 0.9.1 | <<mit>>
+| process-relative-require | 1.0.0 | <<isc>>
+| protractor | 3.3.0 | <<mit>>
+| protractor | 4.0.9 | <<mit>>
+| qjobs | 1.1.5 | <<mit>>
+| qs | 5.2.1 | <<bsd-3-clause>>
+| qs | 6.2.0 | <<bsd-3-clause>>
+| rc | 1.1.6 | <<bsd-2-clause>>
+| readable-stream | 1.0.34 | <<mit>>
+| readable-stream | 2.1.5 | <<mit>>
+| readline2 | 0.1.1 | <<mit>>
+| readline2 | 1.0.1 | <<mit>>
+| redeyed | 0.5.0 | <<mit>>
+| reflect-metadata | 0.1.9 | <<apache-2.0>>
+| regenerator-runtime | 0.10.1 | <<mit>>
+| remap-istanbul | 0.6.4 | <<bsd-3-clause>>
+| repeat-string | 0.2.2 | <<mit>>
+| request | 2.67.0 | <<apache-2.0>>
+| resolve | 1.1.7 | <<mit>>
+| restore-cursor | 1.0.1 | <<mit>>
+| run-async | 0.1.0 | <<mit>>
+| rx-lite | 3.1.2 | <<apache-2.0>>
+| rxjs | 5.0.0-beta.12 | <<apache-2.0>>
+| sass-graph | 2.1.2 | <<mit>>
+| sass-loader | 3.2.3 | <<mit>>
+| saucelabs | 1.3.0 | <<mit>>
+| sax | 0.5.8 | <<bsd-2-clause>>
+| selenium-webdriver | 2.52.0 | <<apache-2.0>>
+| selenium-webdriver | 2.53.3 | <<apache-2.0>>
+| semver | 4.3.6 | <<isc>>
+| sigmund | 1.0.1 | <<isc>>
+| silent-error | 1.0.1 | <<isc>>
+| slide | 1.1.6 | <<isc>>
+| source-map-loader | 0.1.5 | <<mit>>
+| source-map-support | 0.4.8 | <<mit>>
+| source-map | 0.1.43 | <<bsd-3-clause>>
+| source-map | 0.5.6 | <<bsd-3-clause>>
+| sourcemap-istanbul-instrumenter-loader | 0.2.0 | <<do-what-the-fuck-you-want-license>>
+| spdx-license-list | 2.1.0 | <<mit>>
+| string-replace-loader | 1.0.5 | <<mit>>
+| strip-ansi | 2.0.1 | <<mit>>
+| strip-json-comments | 1.0.4 | <<mit>>
+| strip-json-comments | 2.0.1 | <<mit>>
+| stylus-loader | 2.4.0 | <<mit>>
+| stylus | 0.54.5 | <<mit>>
+| sum-up | 1.0.3 | <<mit>>
+| supports-color | 0.2.0 | <<mit>>
+| supports-color | 3.1.2 | <<mit>>
+| tar-pack | 3.3.0 | <<bsd-2-clause>>
+| tar | 2.2.1 | <<isc>>
+| textextensions | 2.0.1 | <<mit>>
+| tmp | 0.0.24 | <<mit>>
+| tough-cookie | 2.2.2 | <<bsd-3-clause>>
+| treeify | 1.0.1 | <<mit>>
+| ts-helpers | 1.1.2 | <<mit>>
+| ts-node | 1.2.1 | <<mit>>
+| tslint-loader | 2.1.5 | <<mit>>
+| tslint | 3.13.0 | <<apache-2.0>>
+| tslint | 3.15.1 | <<apache-2.0>>
+| typescript | 2.0.10 | <<apache-2.0>>
+| uc.micro | 1.0.3 | <<do-what-the-fuck-you-want-license>>
+| uid-number | 0.0.6 | <<isc>>
+| underscore.string | 3.3.4 | <<mit>>
+| useragent | 2.1.10 | <<mit>>
+| void-elements | 2.0.1 | <<mit>>
+| walk-sync | 0.3.1 | <<mit>>
+| webdriver-manager | 10.2.5 | <<mit>>
+| webpack-md5-hash | 0.0.5 | <<mit>>
+| webpack-merge | 0.14.1 | <<mit>>
+| wide-align | 1.1.0 | <<isc>>
+| window-size | 0.2.0 | <<mit>>
+| wordwrap | 1.0.0 | <<mit>>
+| write-file-atomic | 1.2.0 | <<isc>>
+| xdg-basedir | 2.0.0 | <<mit>>
+| yam | 0.0.18 | <<mit>>
+| yargs | 4.8.1 | <<mit>>
+| zone.js | 0.6.26 | <<mit>>
 |===
