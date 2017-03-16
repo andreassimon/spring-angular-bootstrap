@@ -19,6 +19,10 @@ ext {
     allowedLicenses = [
         ('Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'): License.Apache2(),
         ('Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)'): License.Apache2(),
+        ('http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]'): License.Apache2(),
+        ('http://www.apache.org/licenses/LICENSE-2.0.txt[Apache Software Licenses]'): License.Apache2(),
+        ('http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]'): License.Apache2(),
+        ('http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]'): License.Apache2(),
         ('bsd 2 clause or mit or apache 2.0'): License.BSD2(),
         ('bsd 3 clause and mit'): License.MIT(),
         ('BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)'): License.BSD2(),
@@ -27,6 +31,8 @@ ext {
         ('BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)'): License.BSD3(),
         ('Do What The F*ck You Want To Public License (http://sam.zoy.org/wtfpl/COPYING)'): License.doWhatTheFuckYouWantPublicLicense(),
         ('ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)'): License.ISC(),
+        ('http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'): License.LGPL2_1(),
+        ('http://www.opensource.org/licenses/mit-license.php[MIT License]'): License.MIT(),
         ('MIT (http  : //www.opensource.org/licenses/MIT)'): License.MIT(),
         ('MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)'): License.MIT(),
         ('MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)'): License.MIT(),
@@ -47,6 +53,7 @@ ext {
         ('MIT (https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt)'): License.MIT(),
         ('MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)'): License.MIT(),
         ('MIT License (http://www.opensource.org/licenses/MIT)'): License.MIT(),
+        ('http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]'): License.CC0(),
         ('unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'): License.Apache2(),
         ('zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)'): License.Zlib(),
     ]
@@ -54,7 +61,19 @@ ext {
 }
 
 task allowedLicensesAsciidoc(group: 'Documentation') << {
-    new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text = ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.unique().sort().join("\n")
+    new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text =
+        ((Map<String, License>) allowedLicenses).values().toSet() \
+            .sort { License a, License b -> a.name.compareTo(b.name) } \
+            .collect { " * $it.reference\n" } \
+            .join()
+}
+
+task backendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
+    dependsOn ':backend:generateLicenseReport'
+
+    input rootProject.file("backend/build/licenses.tsv")
+    output file("src/docs/asciidoc/backend-licenses.adoc")
+    allowedLicenses project.allowedLicenses
 }
 
 task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
@@ -65,9 +84,9 @@ task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
 
 asciidoctor {
     group 'Documentation'
-    dependsOn ':backend:generateLicenseReport'
+    dependsOn allowedLicensesAsciidoc
+    dependsOn backendLicenses
     dependsOn frontendLicenses
-//    inputs.file licenseReportFileName
 
     // The backends to use. Use backends to append. Use setBackends or backends=[] to overwrite Type: Set<String>, but
     // any type can be converted to String can be used. Default: [html5].

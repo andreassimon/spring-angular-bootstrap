@@ -23,7 +23,7 @@ class ProcessLicensesTask extends DefaultTask {
 
     @TaskAction
     def processLicenses() {
-        List<Library> frontendLibraries = input.collect { line ->
+        List<Library> libraries = input.collect { line ->
             def matcher = (line =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
             if (!matcher.matches()) {
                 throw new RuntimeException("Cannot match '$line'")
@@ -33,13 +33,13 @@ class ProcessLicensesTask extends DefaultTask {
                 version: matcher[0][2] as String,
                 licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String).reference
             )
-        }
+        }.sort { Library a, Library b -> a.name.compareTo(b.name) }
 
         output.text = """\
 [cols="5,2,6",options="header"]
 |===
 | Name | Version | Lizenz
-${ ((List<License>) frontendLibraries).collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
+${ ((List<License>) libraries).collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
 |===
 """
     }

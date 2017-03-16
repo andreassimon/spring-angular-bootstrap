@@ -36,6 +36,8 @@ $ dnf install git   # ab Fedora 22 aufwärts
 
 include::allowed-licenses.adoc[]
 
+=== Backend
+
 include::backend-licenses.adoc[]
 
 === Frontend
@@ -48,6 +50,7 @@ include::frontend-licenses.adoc[]
 include::apache-2.0.adoc[leveloffset=+2]
 include::bsd-2-clause.adoc[leveloffset=+2]
 include::bsd-3-clause.adoc[leveloffset=+2]
+include::cc0-1.0.adoc[leveloffset=+2]
 include::do-what-the-fuck-you-want-license.adoc[leveloffset=+2]
 include::isc.adoc[leveloffset=+2]
 include::lgpl-2.1.adoc[leveloffset=+2]
