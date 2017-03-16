@@ -1,6 +1,3 @@
-import de.quagilis.license.License
-
-
 buildscript {
     repositories {
         maven { url 'https://plugins.gradle.org/m2/' }
@@ -9,8 +6,6 @@ buildscript {
     }
 
     dependencies {
-        classpath "org.asciidoctor:asciidoctor-gradle-plugin:1.5.3"
-        classpath "org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.11"
         classpath "gradle.plugin.com.github.jk1:gradle-license-report:0.3.5"
     }
 }
@@ -21,12 +16,11 @@ plugins {
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'org.asciidoctor.convert'
 apply plugin: 'com.github.jk1.dependency-license-report'
 
 
 jar {
-	baseName = 'bootstrap'
+	baseName = 'bootstrap-backend'
 	version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
@@ -49,40 +43,6 @@ dependencies {
 }
 
 ext {
-    allowedLicenses = [
-        ('Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'): License.Apache2(),
-        ('Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)'): License.Apache2(),
-        ('bsd 2 clause or mit or apache 2.0'): License.BSD2(),
-        ('bsd 3 clause and mit'): License.MIT(),
-        ('BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)'): License.BSD2(),
-        ('BSD (http://opensource.org/licenses/BSD-3-Clause)'): License.BSD3(),
-        ('BSD 2-clause "Simplified" License (http://www.opensource.org/licenses/BSD-2-Clause)'): License.BSD2(),
-        ('BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)'): License.BSD3(),
-        ('Do What The F*ck You Want To Public License (http://sam.zoy.org/wtfpl/COPYING)'): License.doWhatTheFuckYouWantPublicLicense(),
-        ('ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)'): License.ISC(),
-        ('MIT (http  : //www.opensource.org/licenses/MIT)'): License.MIT(),
-        ('MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)'): License.MIT(),
-        ('MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)'): License.MIT(),
-        ('MIT (http://github.com/jprichardson/node-fs-extra/raw/master/LICENSE)'): License.MIT(),
-        ('MIT (http://lp.mit-license.org/)'): License.MIT(),
-        ('MIT (http://opensource.org/licenses/MIT)'): License.MIT(),
-        ('MIT (http://www.opensource.org/licenses/mit-license.php)'): License.MIT(),
-        ('MIT (https://github.com/3rd-Eden/useragent/blob/master/LICENSE)'): License.MIT(),
-        ('MIT (https://github.com/cowboy/node-exit/blob/master/LICENSE-MIT)'): License.MIT(),
-        ('MIT (https://github.com/isaacs/nopt/raw/master/LICENSE)'): License.MIT(),
-        ('MIT (https://github.com/jonschlinkert/braces/blob/master/LICENSE-MIT)'): License.MIT(),
-        ('MIT (https://github.com/jonschlinkert/expand-range/blob/master/LICENSE-MIT)'): License.MIT(),
-        ('MIT (https://github.com/jonschlinkert/is-number/blob/master/LICENSE-MIT)'): License.MIT(),
-        ('MIT (https://github.com/jonschlinkert/repeat-string/blob/master/LICENSE-MIT)'): License.MIT(),
-        ('MIT (https://github.com/mklabs/node-fileset/blob/master/LICENSE-MIT)'): License.MIT(),
-        ('MIT (https://github.com/shinnn/inline-source-map-comment/blob/master/LICENSE)'): License.MIT(),
-        ('MIT (https://github.com/trentmillar/md5-o-matic/blob/master/LICENSE)'): License.MIT(),
-        ('MIT (https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt)'): License.MIT(),
-        ('MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)'): License.MIT(),
-        ('MIT License (http://www.opensource.org/licenses/MIT)'): License.MIT(),
-        ('unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'): License.Apache2(),
-        ('zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)'): License.Zlib(),
-    ]
     licenseReportFileName = "$projectDir/src/docs/asciidoc/backend-licenses.adoc"
 }
 
@@ -101,7 +61,7 @@ licenseReport {
     // excludes = ['moduleGroup:moduleName']
 
     // Set custom report renderer, implementing ReportRenderer.
-    renderer = new de.quagilis.license.render.AsciidocReportRenderer(licenseReportFileName, 'Backend')
+    renderer = new de.quagilis.license.render.TsvLicenseReportRenderer(licenseReportFileName)
 
     // Set importers to import any external dependency information, i.e. from npm.
     // Custom importer should implement DependencyDataImporter interface.
@@ -109,63 +69,4 @@ licenseReport {
 
     // Adjust the configurations to use, e.g. for Android projects.
     // configurations = ['compile']
-}
-
-License normalizeLicenses(String library, String licenses) {
-    if(!((Map<String, License>) allowedLicenses).containsKey(licenses)) {
-        throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
-    }
-    return allowedLicenses[licenses]
-}
-
-task frontendLicenses(group: 'Documentation') << {
-    new File('src/docs/asciidoc/allowed-licenses.adoc').text = """\
-=== Zugelassene Lizenzen
-
-${ ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.unique().sort().join("\n") }
-"""
-
-    List<de.quagilis.license.Library> frontendLibraries = []
-    new File("angular/licenses.tsv").eachLine { line ->
-        def matcher = (line =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
-        if (!matcher.matches()) {
-            throw new RuntimeException("Cannot match '$line'")
-        }
-        frontendLibraries << new de.quagilis.license.Library(
-            name: matcher[0][1] as String,
-            version: matcher[0][2] as String,
-            licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String).reference
-        )
-    }
-
-    new File("src/docs/asciidoc/frontend-licenses.adoc").text = """\
-=== Frontend
-
-[cols="5,2,6",options="header"]
-|===
-| Name | Version | Lizenz
-${ ((List<License>) frontendLibraries).collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
-|===
-"""
-}
-
-asciidoctor {
-    group 'Documentation'
-    dependsOn generateLicenseReport, frontendLicenses
-    inputs.file licenseReportFileName
-
-    // The backends to use. Use backends to append. Use setBackends or backends=[] to overwrite Type: Set<String>, but
-    // any type can be converted to String can be used. Default: [html5].
-    backends 'pdf'
-    sources {
-        include 'administrationshandbuch.adoc'
-    }
-    attributes = [
-        doctype:     'book',
-        toc:         'left',
-        toclevels:   '2',
-        numbered:    '',
-        sectlinks:   '',
-        sectanchors: ''
-    ]
 }
