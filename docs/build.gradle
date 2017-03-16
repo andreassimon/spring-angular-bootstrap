@@ -54,42 +54,13 @@ ext {
 }
 
 task allowedLicensesAsciidoc(group: 'Documentation') << {
-    new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text = """\
-=== Zugelassene Lizenzen
-
-${ ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.unique().sort().join("\n") }
-"""
+    new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text = ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.unique().sort().join("\n")
 }
 
-License normalizeLicenses(String library, String licenses) {
-    if(!((Map<String, License>) allowedLicenses).containsKey(licenses)) {
-        throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
-    }
-    return allowedLicenses[licenses]
-}
-
-task frontendLicenses(group: 'Documentation') << {
-
-    List<de.quagilis.license.Library> frontendLibraries = []
-    rootProject.file("frontend/licenses.tsv").eachLine { line ->
-        def matcher = (line =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
-        if (!matcher.matches()) {
-            throw new RuntimeException("Cannot match '$line'")
-        }
-        frontendLibraries << new de.quagilis.license.Library(
-            name: matcher[0][1] as String,
-            version: matcher[0][2] as String,
-            licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String).reference
-        )
-    }
-
-    file("src/docs/asciidoc/frontend-licenses.adoc").text = """\
-[cols="5,2,6",options="header"]
-|===
-| Name | Version | Lizenz
-${ ((List<License>) frontendLibraries).collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
-|===
-"""
+task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
+    input rootProject.file("frontend/licenses.tsv")
+    output file("src/docs/asciidoc/frontend-licenses.adoc")
+    allowedLicenses project.allowedLicenses
 }
 
 asciidoctor {

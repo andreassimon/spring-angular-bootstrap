@@ -32,6 +32,8 @@ $ dnf install git   # ab Fedora 22 aufwärts
 
 == Third-party libraries
 
+=== Zugelassene Lizenzen
+
 include::allowed-licenses.adoc[]
 
 include::backend-licenses.adoc[]
