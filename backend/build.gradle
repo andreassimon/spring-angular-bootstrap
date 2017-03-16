@@ -43,7 +43,7 @@ dependencies {
 }
 
 ext {
-    licenseReportFileName = "$projectDir/src/docs/asciidoc/backend-licenses.adoc"
+    licenseReportFileName = "$projectDir/build/licenses.tsv"
 }
 
 licenseReport {

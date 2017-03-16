@@ -87,6 +87,7 @@ ${ ((List<License>) frontendLibraries).collect { "| ${it.name} | ${it.version} |
 
 asciidoctor {
     group 'Documentation'
+    dependsOn ':backend:generateLicenseReport'
 //    dependsOn generateLicenseReport, frontendLicenses
     inputs.file licenseReportFileName
 

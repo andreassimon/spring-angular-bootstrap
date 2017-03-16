@@ -26,6 +26,7 @@ class TsvLicenseReportRenderer implements ReportRenderer {
         project = data.project
         config = project.licenseReport
         output = new File(fileName)
+        output.text = ''
 
         data.allDependencies.sort().each {
             printDependency(it)
@@ -42,23 +43,23 @@ class TsvLicenseReportRenderer implements ReportRenderer {
         def moduleVersion = data.version
         def (String moduleUrl, String moduleLicense, String moduleLicenseUrl) = moduleLicenseInfo(config, data)
 
-        output << "| "
-
-        if (moduleUrl) {
-            output << "$moduleUrl[${moduleName(data)}]"
-        } else {
-            output << moduleName(data)
-        }
-        output << " | $moduleVersion"
+        output << "${moduleName(data)} ($moduleVersion)"
+        output << "\t"
         if (moduleLicense) {
             if (moduleLicenseUrl) {
-                output << " | $moduleLicenseUrl[$moduleLicense]\n"
+                output << "$moduleLicenseUrl[$moduleLicense]"
             } else {
-                output << " | $moduleLicense\n"
+                output << "$moduleLicense"
             }
         } else {
-            output << " | *No license information found*\n"
+            output << "*No license information found*"
         }
+        output << "\t"
+        if(moduleUrl) {
+            output << "$moduleUrl"
+        }
+
+        output << "\n"
     }
 
     String moduleName(ModuleData data) {
@@ -69,19 +70,19 @@ class TsvLicenseReportRenderer implements ReportRenderer {
 
     private void printImportedModule(ImportedModuleData data) {
         if (data.projectUrl) {
-            output << "| $data.projectUrl[$data.name]"
+            output << "$data.projectUrl[$data.name]"
         } else {
-            output << "| $data.name"
+            output << "$data.name"
         }
-        output << " | $data.version"
+        output << " ($data.version)"
         if (data.license) {
             if (data.licenseUrl) {
-                output << " | $data.licenseUrl[$data.license]\n"
+                output << "\t$data.licenseUrl[$data.license]\n"
             } else {
-                output << " | $data.license\n"
+                output << "\t$data.license\n"
             }
         } else {
-            output << " | *No license information found*\n"
+            output << "\t*No license information found*\n"
         }
     }
 
