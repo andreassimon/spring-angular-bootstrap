@@ -1,5 +1,3 @@
-=== Frontend
-
 [cols="5,2,6",options="header"]
 |===
 | Name | Version | Lizenz

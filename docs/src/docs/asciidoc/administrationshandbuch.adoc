@@ -36,6 +36,8 @@ include::allowed-licenses.adoc[]
 
 include::backend-licenses.adoc[]
 
+=== Frontend
+
 include::frontend-licenses.adoc[]
 
 [appendix]

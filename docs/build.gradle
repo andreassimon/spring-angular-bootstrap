@@ -53,16 +53,25 @@ ext {
     licenseReportFileName = "$projectDir/src/docs/asciidoc/backend-licenses.adoc"
 }
 
-
-task frontendLicenses(group: 'Documentation') << {
-    new File('src/docs/asciidoc/allowed-licenses.adoc').text = """\
+task allowedLicensesAsciidoc(group: 'Documentation') << {
+    new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text = """\
 === Zugelassene Lizenzen
 
 ${ ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.unique().sort().join("\n") }
 """
+}
+
+License normalizeLicenses(String library, String licenses) {
+    if(!((Map<String, License>) allowedLicenses).containsKey(licenses)) {
+        throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
+    }
+    return allowedLicenses[licenses]
+}
+
+task frontendLicenses(group: 'Documentation') << {
 
     List<de.quagilis.license.Library> frontendLibraries = []
-    new File("angular/licenses.tsv").eachLine { line ->
+    rootProject.file("frontend/licenses.tsv").eachLine { line ->
         def matcher = (line =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
         if (!matcher.matches()) {
             throw new RuntimeException("Cannot match '$line'")
@@ -74,9 +83,7 @@ ${ ((Map<String, License>) allowedLicenses).values().collect { " * $it.name" }.u
         )
     }
 
-    new File("src/docs/asciidoc/frontend-licenses.adoc").text = """\
-=== Frontend
-
+    file("src/docs/asciidoc/frontend-licenses.adoc").text = """\
 [cols="5,2,6",options="header"]
 |===
 | Name | Version | Lizenz
@@ -88,8 +95,8 @@ ${ ((List<License>) frontendLibraries).collect { "| ${it.name} | ${it.version} |
 asciidoctor {
     group 'Documentation'
     dependsOn ':backend:generateLicenseReport'
-//    dependsOn generateLicenseReport, frontendLicenses
-    inputs.file licenseReportFileName
+    dependsOn frontendLicenses
+//    inputs.file licenseReportFileName
 
     // The backends to use. Use backends to append. Use setBackends or backends=[] to overwrite Type: Set<String>, but
     // any type can be converted to String can be used. Default: [html5].
@@ -106,11 +113,3 @@ asciidoctor {
         sectanchors: ''
     ]
 }
-
-License normalizeLicenses(String library, String licenses) {
-    if(!((Map<String, License>) allowedLicenses).containsKey(licenses)) {
-        throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
-    }
-    return allowedLicenses[licenses]
-}
-
