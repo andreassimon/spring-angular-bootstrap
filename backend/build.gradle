@@ -11,7 +11,7 @@ buildscript {
 }
 
 plugins {
-    id "org.springframework.boot" version "1.4.2.RELEASE"
+    id "org.springframework.boot" version "1.5.2.RELEASE"
 }
 
 apply plugin: 'com.github.jk1.dependency-license-report'

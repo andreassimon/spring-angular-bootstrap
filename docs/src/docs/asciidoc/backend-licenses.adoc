@@ -3,42 +3,42 @@
 | Name | Version | Lizenz
 | Bean Validation API | 1.1.0.Final | <<apache-2.0>>
 | ClassMate | 1.3.3 | <<apache-2.0>>
-| Hibernate Validator Engine | 5.2.4.Final | <<apache-2.0>>
+| Hibernate Validator Engine | 5.3.4.Final | <<apache-2.0>>
 | JBoss Logging 3 | 3.3.0.Final | <<CC0-1.0-license>>
-| JCL 1.1.1 implemented over SLF4J | 1.7.21 | <<mit>>
-| JUL to SLF4J bridge | 1.7.21 | <<mit>>
-| Jackson-annotations | 2.8.4 | <<apache-2.0>>
-| Jackson-core | 2.8.4 | <<apache-2.0>>
-| Log4j Implemented Over SLF4J | 1.7.21 | <<apache-2.0>>
-| Logback Classic Module | 1.1.7 | <<lgpl-2.1-license>>
-| Logback Core Module | 1.1.7 | <<lgpl-2.1-license>>
-| SLF4J API Module | 1.7.21 | <<mit>>
+| JCL 1.2 implemented over SLF4J | 1.7.24 | <<mit>>
+| JUL to SLF4J bridge | 1.7.24 | <<mit>>
+| Jackson-annotations | 2.8.0 | <<apache-2.0>>
+| Jackson-core | 2.8.7 | <<apache-2.0>>
+| Log4j Implemented Over SLF4J | 1.7.24 | <<apache-2.0>>
+| Logback Classic Module | 1.1.11 | <<lgpl-2.1-license>>
+| Logback Core Module | 1.1.11 | <<lgpl-2.1-license>>
+| SLF4J API Module | 1.7.24 | <<mit>>
 | SnakeYAML | 1.17 | <<apache-2.0>>
-| Spring AOP | 4.3.4.RELEASE | <<apache-2.0>>
-| Spring Beans | 4.3.4.RELEASE | <<apache-2.0>>
-| Spring Boot | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Actuator | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Actuator Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot AutoConfigure | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Developer Tools | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot HATEOAS Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Logging Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Security Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Tomcat Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Boot Web Starter | 1.4.2.RELEASE | <<apache-2.0>>
-| Spring Context | 4.3.4.RELEASE | <<apache-2.0>>
-| Spring Core | 4.3.4.RELEASE | <<apache-2.0>>
-| Spring Expression Language (SpEL) | 4.3.4.RELEASE | <<apache-2.0>>
-| Spring HATEOAS | 0.20.0.RELEASE | <<apache-2.0>>
+| Spring AOP | 4.3.7.RELEASE | <<apache-2.0>>
+| Spring Beans | 4.3.7.RELEASE | <<apache-2.0>>
+| Spring Boot | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Actuator | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Actuator Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot AutoConfigure | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Developer Tools | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot HATEOAS Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Logging Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Security Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Tomcat Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Boot Web Starter | 1.5.2.RELEASE | <<apache-2.0>>
+| Spring Context | 4.3.7.RELEASE | <<apache-2.0>>
+| Spring Core | 4.3.7.RELEASE | <<apache-2.0>>
+| Spring Expression Language (SpEL) | 4.3.7.RELEASE | <<apache-2.0>>
+| Spring HATEOAS | 0.23.0.RELEASE | <<apache-2.0>>
 | Spring Plugin - Core | 1.2.0.RELEASE | <<apache-2.0>>
-| Spring Web | 4.3.4.RELEASE | <<apache-2.0>>
-| Spring Web MVC | 4.3.4.RELEASE | <<apache-2.0>>
-| jackson-databind | 2.8.4 | <<apache-2.0>>
-| org.apache.tomcat.embed:tomcat-embed-core | 8.5.6 | <<apache-2.0>>
-| org.apache.tomcat.embed:tomcat-embed-el | 8.5.6 | <<apache-2.0>>
-| org.apache.tomcat.embed:tomcat-embed-websocket | 8.5.6 | <<apache-2.0>>
-| spring-security-config | 4.1.3.RELEASE | <<apache-2.0>>
-| spring-security-core | 4.1.3.RELEASE | <<apache-2.0>>
-| spring-security-web | 4.1.3.RELEASE | <<apache-2.0>>
+| Spring Web | 4.3.7.RELEASE | <<apache-2.0>>
+| Spring Web MVC | 4.3.7.RELEASE | <<apache-2.0>>
+| jackson-databind | 2.8.7 | <<apache-2.0>>
+| org.apache.tomcat.embed:tomcat-embed-core | 8.5.11 | <<apache-2.0>>
+| org.apache.tomcat.embed:tomcat-embed-el | 8.5.11 | <<apache-2.0>>
+| org.apache.tomcat.embed:tomcat-embed-websocket | 8.5.11 | <<apache-2.0>>
+| spring-security-config | 4.2.2.RELEASE | <<apache-2.0>>
+| spring-security-core | 4.2.2.RELEASE | <<apache-2.0>>
+| spring-security-web | 4.2.2.RELEASE | <<apache-2.0>>
 |===
