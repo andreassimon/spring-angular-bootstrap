@@ -2,6 +2,7 @@
 = Do what the f*ck you want public license
 http://www.wtfpl.net/txt/copying/
 
+....
             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                     Version 2, December 2004
 
@@ -15,3 +16,4 @@ http://www.wtfpl.net/txt/copying/
    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
   0. You just DO WHAT THE FUCK YOU WANT TO.
+....
