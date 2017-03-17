@@ -14,8 +14,6 @@ plugins {
     id "org.springframework.boot" version "1.4.2.RELEASE"
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
 apply plugin: 'com.github.jk1.dependency-license-report'
 
 

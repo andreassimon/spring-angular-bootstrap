@@ -60,12 +60,14 @@ ext {
     licenseReportFileName = "$projectDir/src/docs/asciidoc/backend-licenses.adoc"
 }
 
-task allowedLicensesAsciidoc(group: 'Documentation') << {
-    new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text =
-        ((Map<String, License>) allowedLicenses).values().toSet() \
-            .sort { License a, License b -> a.name.compareTo(b.name) } \
-            .collect { " * $it.reference\n" } \
-            .join()
+task allowedLicensesAsciidoc(group: 'Documentation') {
+    doLast {
+      new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text =
+          ((Map<String, License>) allowedLicenses).values().toSet() \
+              .sort { License a, License b -> a.name.compareTo(b.name) } \
+              .collect { " * $it.reference\n" } \
+              .join()
+    }
 }
 
 task backendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
