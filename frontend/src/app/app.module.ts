@@ -5,12 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from "./dashboard.component";
+import { LoginComponent } from './login.component';
 import { HeroService } from "./hero.service";
+import { AuthenticationService } from "./authentication.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,6 +21,7 @@ import { HeroService } from "./hero.service";
     HttpModule
   ],
   providers: [
+    AuthenticationService,
     HeroService
   ],
   bootstrap: [ AppComponent ]

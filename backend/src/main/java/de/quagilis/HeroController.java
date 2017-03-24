@@ -3,6 +3,7 @@ package de.quagilis;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,10 +14,10 @@ import static java.util.Arrays.asList;
 
 @RestController
 @RequestMapping("/heroes")
-@CrossOrigin(origins="http://localhost:3000*", maxAge=3600)
+@CrossOrigin()
 public class HeroController {
 
-    @RequestMapping(value = "/", produces = "application/json")
+    @GetMapping(value = "/", produces = "application/json")
     public List<Hero> getAll() {
         return asList(
                 new Hero(11, "Mr. Nice", Power.REALLY_SMART),

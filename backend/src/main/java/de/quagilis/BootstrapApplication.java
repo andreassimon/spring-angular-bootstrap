@@ -19,7 +19,8 @@ public class BootstrapApplication extends WebSecurityConfigurerAdapter {
             .httpBasic()
         .and()
             .authorizeRequests()
-            .antMatchers("/heroes/").permitAll()
+            .antMatchers("/user/").permitAll()
+//            .antMatchers("/heroes/").permitAll()
             .anyRequest().authenticated();
     }
 
