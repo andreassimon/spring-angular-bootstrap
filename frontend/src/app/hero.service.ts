@@ -23,7 +23,6 @@ export class HeroService {
     return this.http.get(this.heroesUrl)
       .toPromise()
       .then(response => {
-        console.log("Foo");
         return response.json() as Hero[];
       })
       .catch(this.handleError);

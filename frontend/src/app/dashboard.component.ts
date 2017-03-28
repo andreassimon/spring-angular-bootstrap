@@ -8,6 +8,8 @@ import {HeroService} from './hero.service';
   styleUrls: ['dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  error: String = undefined;
+
   heroes: Hero[];
 
   constructor(private heroService: HeroService) {}
@@ -15,6 +17,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.heroService.getHeroes()
       .then(heroes => this.heroes = heroes.slice(1, 5))
-      .catch(reason => window.alert(reason));
+      .catch(reason => this.error = 'Heroes could not be loaded.');
   }
 }
