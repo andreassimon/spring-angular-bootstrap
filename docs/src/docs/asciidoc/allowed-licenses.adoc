@@ -4,6 +4,7 @@
  * <<CC0-1.0-license>>
  * <<do-what-the-fuck-you-want-license>>
  * <<lgpl-2.1-license>>
+ * <<lgpl-3.0-license>>
  * <<isc>>
  * <<mit>>
  * <<zlib>>

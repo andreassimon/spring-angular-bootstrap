@@ -64,6 +64,13 @@ class License {
     }
 
     @Memoized
+    static def LGPL3_0() {
+        return new License(name: 'GNU Lesser General Public License 3.0', reference: '<<lgpl-3.0-license>>', links: [
+            new URL('http://www.gnu.org/licenses/lgpl.html')
+        ])
+    }
+
+    @Memoized
     static License MIT() {
         return new License (name: 'MIT License', reference: '<<mit>>', links: [
             new URL('http://www.opensource.org/licenses/MIT')
@@ -77,4 +84,9 @@ class License {
             new URL('http://www.opensource.org/licenses/MIT')
         ])
     }
+
+    static License forbidden(String forbiddenLicense) {
+        return new License(reference: "*_FORBIDDEN:_* $forbiddenLicense")
+    }
+
 }
