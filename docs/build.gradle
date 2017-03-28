@@ -33,6 +33,8 @@ ext {
         ('ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)'): License.ISC(),
         ('http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'): License.LGPL2_1(),
         ('http://www.opensource.org/licenses/mit-license.php[MIT License]'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/array-slice/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/arr-flatten/blob/master/LICENSE)'): License.MIT(),
         ('MIT (http  : //www.opensource.org/licenses/MIT)'): License.MIT(),
         ('MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)'): License.MIT(),
         ('MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)'): License.MIT(),
@@ -56,6 +58,56 @@ ext {
         ('http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]'): License.CC0(),
         ('unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'): License.Apache2(),
         ('zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)'): License.Zlib(),
+        ('MIT (http://creativecommons.org/licenses/MIT/)'): License.MIT(),
+        ('MIT (http://github.com/Colingo/date-now/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://github.com/Raynos/console-browserify/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://github.com/Raynos/function-bind/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://github.com/Raynos/to-array/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://github.com/aslakhellesoy/eventsource-node/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://github.com/fb55/htmlparser2/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://github.com/kriskowal/q/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (http://kit.mit-license.org/)'): License.MIT(),
+        ('MIT (http://mths.be/mit)'): License.MIT(),
+        ('MIT (http://www.opensource.org/licenses/MIT)'): License.MIT(),
+        ('MIT (https://github.com/Gozala/enchain/License.md)'): License.MIT(),
+        ('MIT (https://github.com/caolan/async/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/cowboy/node-findup-sync/blob/master/LICENSE-MIT)'): License.MIT(),
+        ('MIT (https://github.com/isaacs/rimraf/raw/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jefflembeck/img-stats/blob/master/LICENSE-MIT), MIT License (http://www.opensource.org/licenses/MIT)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/array-unique/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/glob-base/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/is-primitive/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/longest/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/preserve/blob/master/LICENSE-MIT)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/repeat-element/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://github.com/jonschlinkert/window-size/blob/master/LICENSE-MIT)'): License.MIT(),
+        ('MIT (https://github.com/jryans/timers-browserify/blob/master/LICENSE.md)'): License.MIT(),
+        ('MIT (https://github.com/niklasvh/base64-arraybuffer/blob/master/LICENSE-MIT)'): License.MIT(),
+        ('MIT (https://github.com/regexps/filename-regex/blob/master/LICENSE-MIT)'): License.MIT(),
+        ('MIT (https://github.com/tarruda/has/blob/master/LICENSE-MIT)'): License.MIT(),
+        ('MIT (https://github.com/thlorenz/deep-is/blob/master/LICENSE)'): License.MIT(),
+        ('MIT (https://raw.github.com/broofa/node-mime/master/LICENSE)'): License.MIT(),
+        ('MIT (https://raw.github.com/gkz/prelude-ls/master/LICENSE)'): License.MIT(),
+        ('wtfpl or mit'): License.MIT(),
+//        'AFLv2.1 (http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43), BSD (http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13)'
+        ('BSD (http://github.com/estools/estraverse/raw/master/LICENSE.BSD)'): License.BSD2(),
+        ('BSD (http://github.com/estools/esutils/raw/master/LICENSE.BSD)'): License.BSD2(),
+        ('BSD (http://github.com/hueniverse/sntp/raw/master/LICENSE)'): License.BSD3(),
+//        'BSD (https://github.com/jrburke/r.js/blob/master/LICENSE), MIT (https://github.com/jrburke/r.js/blob/master/LICENSE)'
+//        'Creative Commons Attribution 4.0 (http://creativecommons.org/licenses/by/4.0/legalcode)'
+        ('LGPL (http://www.gnu.org/licenses/lgpl.html)'): License.LGPL3_0(),
+//        'MISSING'
+//        'The Unlicense (http://unlicense.org/)'
+//        'bsd like'
+//        'bsd like'
+//        'bsd like'
+//        'public domain'
+//        'unknown (http://github.com/rbuckton/reflect-metadata/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
+//        'unmatched: node_modules/dom-serializer/node_modules/domelementtype/LICENSE'
+//        'unmatched: node_modules/domelementtype/LICENSE'
+//        'unmatched: node_modules/domhandler/LICENSE'
+//        'unmatched: node_modules/domutils/LICENSE'
+//        'unmatched: node_modules/htmlparser2/node_modules/domutils/LICENSE'
     ]
     licenseReportFileName = "$projectDir/src/docs/asciidoc/backend-licenses.adoc"
 }
