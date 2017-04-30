@@ -2,9 +2,11 @@
  * <<bsd-3-clause>>
  * <<apache-2.0>>
  * <<CC0-1.0-license>>
+ * <<CC-Attribution-4.0-license>>
  * <<do-what-the-fuck-you-want-license>>
  * <<lgpl-2.1-license>>
  * <<lgpl-3.0-license>>
  * <<isc>>
+ * *_FORBIDDEN:_* MISSING
  * <<mit>>
  * <<zlib>>

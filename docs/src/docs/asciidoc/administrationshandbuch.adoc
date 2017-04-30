@@ -44,19 +44,7 @@ include::backend-licenses.adoc[]
 
 include::frontend-licenses.adoc[]
 
-[appendix]
-== Lizenztexte
-
-include::apache-2.0.adoc[leveloffset=+2]
-include::bsd-2-clause.adoc[leveloffset=+2]
-include::bsd-3-clause.adoc[leveloffset=+2]
-include::cc0-1.0.adoc[leveloffset=+2]
-include::do-what-the-fuck-you-want-license.adoc[leveloffset=+2]
-include::isc.adoc[leveloffset=+2]
-include::lgpl-2.1.adoc[leveloffset=+2]
-include::lgpl-3.0.adoc[leveloffset=+2]
-include::mit.adoc[leveloffset=+2]
-include::zlib.adoc[leveloffset=+2]
+include::license-texts.adoc[]
 
 [appendix,glossary]
 == Glossar

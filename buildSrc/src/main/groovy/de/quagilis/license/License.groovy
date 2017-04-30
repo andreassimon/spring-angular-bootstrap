@@ -40,6 +40,15 @@ class License {
         ])
     }
 
+
+    @Memoized
+    static License CC_4_0() {
+        return new License(name: 'Creative Commons Attribution 4.0', reference: '<<CC-Attribution-4.0-license>>', links: [
+            new URL('https://creativecommons.org/licenses/by/4.0/legalcode')
+        ])
+    }
+
+
     @Memoized
     static License doWhatTheFuckYouWantPublicLicense() {
         return new License(name: 'Do What The F*ck You Want To Public License', reference: '<<do-what-the-fuck-you-want-license>>', links: [
@@ -83,6 +92,11 @@ class License {
             new URL('http://www.zlib.net/zlib_license.html'),
             new URL('http://www.opensource.org/licenses/MIT')
         ])
+    }
+
+    @Memoized
+    static def MISSING() {
+        return new License(name: 'MISSING', reference: "*_FORBIDDEN:_* MISSING")
     }
 
     static License forbidden(String forbiddenLicense) {
