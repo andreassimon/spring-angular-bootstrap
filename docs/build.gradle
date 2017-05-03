@@ -136,19 +136,22 @@ task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
 task licenseTexts {
     doLast {
         def licenseDocuments = [
-            'apache-2.0.adoc',
-            'bsd-2-clause.adoc',
-            'bsd-3-clause.adoc',
-            'cc0-1.0.adoc',
-            'do-what-the-fuck-you-want-license.adoc',
-            'isc.adoc',
-            'lgpl-2.1.adoc',
-            'lgpl-3.0.adoc',
-            'mit.adoc',
-            'zlib.adoc'
-        ].collect { [licenseDocument: it] }
+            [licenseDocument: 'src/docs/asciidoc/apache-2.0.adoc',
+             licenseText: file('src/docs/asciidoc/apache-2.0.adoc').text ],
+//            'bsd-2-clause.adoc',
+//            'bsd-3-clause.adoc',
+//            'cc0-1.0.adoc',
+//            'do-what-the-fuck-you-want-license.adoc',
+//            'isc.adoc',
+//            'lgpl-2.1.adoc',
+//            'lgpl-3.0.adoc',
+//            'mit.adoc',
+//            'zlib.adoc'
+        ]
         file('src/docs/asciidoc/license-texts.adoc').text = """\
-${ licenseDocuments.collect { license -> "include::${license.licenseDocument}[leveloffset=+2]" }.join('\n') }
+:leveloffset: +2
+${ licenseDocuments.collect { license -> license.licenseText }.join('\n') }
+:leveloffset: -2
 """
     }
 }
