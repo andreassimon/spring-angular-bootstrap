@@ -8,13 +8,15 @@ import org.gradle.api.tasks.TaskAction
 
 class ProcessLicensesTask extends DefaultTask {
 
+    public static final String MATCH_LICENSE = 'matchLicense'
+
     @InputFile
     File input
 
     @OutputFile
     File output
 
-    Map<String, License> allowedLicenses = [:]
+    Map<Map<String, String>, License> allowedLicenses = [:]
 
     ProcessLicensesTask() {
         group = 'Documentation'
@@ -33,22 +35,40 @@ class ProcessLicensesTask extends DefaultTask {
                 version: matcher[0][2] as String,
                 licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String).reference
             )
-        }.sort { Library a, Library b -> a.name.compareTo(b.name) }
+        }.sort { Library a, Library b -> (a.name <=> b.name) }
 
-        output.text = """\
+        output.text = toAsciidoctor(libraries)
+    }
+
+    String toAsciidoctor(List<Library> libraries) {
+        """\
 [cols="5,2,6",options="header"]
 |===
 | Name | Version | Lizenz
-${ ((List<License>) libraries).collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
+${ libraries.collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
 |===
 """
     }
 
     License normalizeLicenses(String library, String licenses) {
-        if(!((Map<String, License>) allowedLicenses).containsKey(licenses)) {
-            throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
+        if(!findMapping(allowedLicenses, licenses, library)) {
+//            throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
+            return License.forbidden(licenses)
         }
-        return allowedLicenses[licenses]
+        return findMapping(allowedLicenses, licenses, library).value
+    }
+
+    Map.Entry<Map<String, String>, License> findMapping(Map<Map<String, String>, License> allowedLicenses, String licenses, String library) {
+        allowedLicenses.find { key, value -> matchesLicense(key, licenses, library) }
+    }
+
+    boolean matchesLicense(Map<String, String> matcher, String licenses, String library) {
+        if (matcher.containsKey(MATCH_LICENSE)) {
+            return matcher[MATCH_LICENSE] == licenses
+        }
+        if (matcher.containsKey('matchLibrary')) {
+            return matcher['matchLibrary'] == library
+        }
     }
 
 }

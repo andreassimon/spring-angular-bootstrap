@@ -44,6 +44,9 @@ include::backend-licenses.adoc[]
 
 include::frontend-licenses.adoc[]
 
+[appendix]
+== Lizenztexte
+
 include::license-texts.adoc[]
 
 [appendix,glossary]
