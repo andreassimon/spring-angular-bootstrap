@@ -136,21 +136,24 @@ task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
 task licenseTexts {
     doLast {
         def licenseDocuments = [
-            [licenseDocument: 'src/docs/asciidoc/apache-2.0.adoc',
-             licenseText: file('src/docs/asciidoc/apache-2.0.adoc').text ],
-//            'bsd-2-clause.adoc',
-//            'bsd-3-clause.adoc',
-//            'cc0-1.0.adoc',
-//            'do-what-the-fuck-you-want-license.adoc',
-//            'isc.adoc',
-//            'lgpl-2.1.adoc',
-//            'lgpl-3.0.adoc',
-//            'mit.adoc',
-//            'zlib.adoc'
+            [ reference: 'apache-2.0', licenseText: file('src/docs/asciidoc/apache-2.0.adoc').text ]
+          , [ reference: 'bsd-2-clause', licenseText: file('src/docs/asciidoc/bsd-2-clause.adoc').text ]
+          , [ reference: 'bsd-3-clause', licenseText: file('src/docs/asciidoc/bsd-3-clause.adoc').text ]
+          , [ reference: 'CC0-1.0-license', licenseText: file('src/docs/asciidoc/cc0-1.0.adoc').text ]
+          , [ reference: 'CC-Attribution-4.0-license', licenseText: file('src/docs/asciidoc/cc-4.0.adoc').text ]
+          , [ reference: 'do-what-the-fuck-you-want-license', licenseText: file('src/docs/asciidoc/do-what-the-fuck-you-want-license.adoc').text ]
+          , [ reference: 'isc', licenseText: file('src/docs/asciidoc/isc.adoc').text ]
+          , [ reference: 'lgpl-2.1-license', licenseText: file('src/docs/asciidoc/lgpl-2.1.adoc').text ]
+          , [ reference: 'lgpl-3.0-license', licenseText: file('src/docs/asciidoc/lgpl-3.0.adoc').text ]
+          , [ reference: 'mit', licenseText: file('src/docs/asciidoc/mit.adoc').text ]
+          , [ reference: 'zlib', licenseText: file('src/docs/asciidoc/zlib.adoc').text ]
         ]
         file('src/docs/asciidoc/license-texts.adoc').text = """\
 :leveloffset: +2
-${ licenseDocuments.collect { license -> license.licenseText }.join('\n') }
+${ licenseDocuments.collect { license ->
+"""[[${license.reference}]]
+${license.licenseText}"""
+}.join('\n') }
 :leveloffset: -2
 """
     }

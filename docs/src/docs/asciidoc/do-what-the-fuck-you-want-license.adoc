@@ -1,4 +1,3 @@
-[[do-what-the-fuck-you-want-license]]
 = Do what the f*ck you want public license
 http://www.wtfpl.net/txt/copying/
 

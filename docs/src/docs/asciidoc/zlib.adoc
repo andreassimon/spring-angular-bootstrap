@@ -1,4 +1,3 @@
-[[zlib]]
 = zlib/libpng License
 http://www.zlib.net/zlib_license.html
 https://opensource.org/licenses/Zlib

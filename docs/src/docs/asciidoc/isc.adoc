@@ -1,4 +1,3 @@
-[[isc]]
 = ISC License
 http://www.opensource.org/licenses/ISC
 
