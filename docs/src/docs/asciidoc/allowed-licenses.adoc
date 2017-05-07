@@ -1,6 +1,5 @@
  * <<bsd-2-clause>>
  * <<bsd-3-clause>>
- * <<apache-2.0>>
  * <<CC0-1.0-license>>
  * <<CC-Attribution-4.0-license>>
  * <<do-what-the-fuck-you-want-license>>

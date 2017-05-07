@@ -17,12 +17,6 @@ apply plugin: 'org.asciidoctor.convert'
 
 ext {
     allowedLicenses = [
-        ([matchLicense: 'Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)']): License.Apache2(),
-        ([matchLicense: 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)']): License.Apache2(),
-        ([matchLicense: 'http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]']): License.Apache2(),
-        ([matchLicense: 'http://www.apache.org/licenses/LICENSE-2.0.txt[Apache Software Licenses]']): License.Apache2(),
-        ([matchLicense: 'http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]']): License.Apache2(),
-        ([matchLicense: 'http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]']): License.Apache2(),
         ([matchLicense: 'bsd 2 clause or mit or apache 2.0']): License.BSD2(),
         ([matchLicense: 'bsd 3 clause and mit']): License.MIT(),
         ([matchLicense: 'BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)']): License.BSD2(),
@@ -57,7 +51,6 @@ ext {
         ([matchLicense: 'MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)']): License.MIT(),
         ([matchLicense: 'MIT License (http://www.opensource.org/licenses/MIT)']): License.MIT(),
         ([matchLicense: 'http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]']): License.CC0(),
-        ([matchLicense: 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)']): License.Apache2(),
         ([matchLicense: 'zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)']): License.Zlib(),
         ([matchLicense: 'MIT (http://creativecommons.org/licenses/MIT/)']): License.MIT(),
         ([matchLicense: 'MIT (http://github.com/Colingo/date-now/raw/master/LICENSE)']): License.MIT(),
@@ -109,6 +102,23 @@ ext {
     ]
 }
 
+apply plugin: de.quagilis.license.LicensePlugin
+
+
+licenses {
+    failOnForbiddenLicenses = true
+
+    apache2 {
+        matchLicense 'Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
+        matchLicense 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)'
+        matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]'
+        matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[Apache Software Licenses]'
+        matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]'
+        matchLicense 'http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]'
+        matchLicense 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
+    }
+}
+
 task allowedLicensesAsciidoc(group: 'Documentation') {
     doLast {
       new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text =
@@ -119,21 +129,21 @@ task allowedLicensesAsciidoc(group: 'Documentation') {
     }
 }
 
-task backendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
-    dependsOn ':backend:generateLicenseReport'
+//task backendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
+//    dependsOn ':backend:generateLicenseReport'
+//
+//    input rootProject.file("backend/build/licenses.tsv")
+//    output file("src/docs/asciidoc/backend-licenses.adoc")
+//    allowedLicenses project.allowedLicenses
+//}
+//
+//task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
+//    input rootProject.file("frontend/licenses.tsv")
+//    output file("src/docs/asciidoc/frontend-licenses.adoc")
+//    allowedLicenses project.allowedLicenses
+//}
 
-    input rootProject.file("backend/build/licenses.tsv")
-    output file("src/docs/asciidoc/backend-licenses.adoc")
-    allowedLicenses project.allowedLicenses
-}
-
-task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
-    input rootProject.file("frontend/licenses.tsv")
-    output file("src/docs/asciidoc/frontend-licenses.adoc")
-    allowedLicenses project.allowedLicenses
-}
-
-task licenseTexts {
+task compileLicenseTexts {
     doLast {
         def licenseDocuments = [
             [ reference: 'apache-2.0', licenseText: file('src/docs/asciidoc/apache-2.0.adoc').text ]
@@ -164,7 +174,7 @@ asciidoctor {
     dependsOn allowedLicensesAsciidoc
     dependsOn backendLicenses
     dependsOn frontendLicenses
-    dependsOn licenseTexts
+    dependsOn compileLicenseTexts
 
     // The backends to use. Use backends to append. Use setBackends or backends=[] to overwrite Type: Set<String>, but
     // any type can be converted to String can be used. Default: [html5].

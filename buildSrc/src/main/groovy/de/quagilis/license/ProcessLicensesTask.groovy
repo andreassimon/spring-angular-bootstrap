@@ -33,7 +33,7 @@ class ProcessLicensesTask extends DefaultTask {
             return new Library(
                 name: matcher[0][1] as String,
                 version: matcher[0][2] as String,
-                licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String).reference
+                licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String, project.licenses.failOnForbiddenLicenses).reference
             )
         }.sort { Library a, Library b -> (a.name <=> b.name) }
 
@@ -50,10 +50,13 @@ ${ libraries.collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }
 """
     }
 
-    License normalizeLicenses(String library, String licenses) {
+    License normalizeLicenses(String library, String licenses, boolean failOnForbiddenLicense) {
         if(!findMapping(allowedLicenses, licenses, library)) {
-//            throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
-            return License.forbidden(licenses)
+            if(failOnForbiddenLicense) {
+                throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
+            } else {
+                return License.forbidden(licenses)
+            }
         }
         return findMapping(allowedLicenses, licenses, library).value
     }

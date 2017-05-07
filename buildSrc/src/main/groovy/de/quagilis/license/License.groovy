@@ -3,13 +3,21 @@ package de.quagilis.license
 import groovy.transform.Immutable
 import groovy.transform.Memoized
 
-import static java.util.Collections.emptyList
 
 @Immutable(knownImmutables = ['link'])
 class License {
     String name
     String reference
     Collection<URL> links
+
+    private Collection<?> matchers = []
+
+    def matchLicense(String licenseString) {
+        matchers << [matchLicense: licenseString]
+    }
+
+
+
 
     @Memoized
     static License Apache2() {
