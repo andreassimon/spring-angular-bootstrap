@@ -76,7 +76,7 @@
 | balanced-match | 0.4.2 | <<mit>>
 | base64-arraybuffer | 0.1.2 | <<mit>>
 | base64-js | 1.2.0 | <<mit>>
-| base64id | 0.1.0 | *_FORBIDDEN:_* MISSING
+| base64id | 0.1.0 | Incompliant: MISSING
 | batch | 0.5.3 | <<mit>>
 | bcrypt-pbkdf | 1.0.1 | <<bsd-3-clause>>
 | benchmark | 1.0.0 | <<mit>>
@@ -168,7 +168,7 @@
 | css-select | 1.2.0 | <<bsd-3-clause>>
 | css-selector-tokenizer | 0.6.0 | <<mit>>
 | css-selector-tokenizer | 0.7.0 | <<mit>>
-| css-what | 2.1.0 | *_FORBIDDEN:_* bsd like
+| css-what | 2.1.0 | <<css-what-license>>
 | cssauron | 1.4.0 | <<mit>>
 | cssesc | 0.1.0 | <<mit>>
 | cssnano | 3.10.0 | <<mit>>
@@ -200,11 +200,11 @@
 | dom-serialize | 2.2.1 | <<mit>>
 | dom-serializer | 0.1.0 | <<mit>>
 | domain-browser | 1.1.7 | <<mit>>
-| domelementtype | 1.1.3 | *_FORBIDDEN:_* unmatched: node_modules/dom-serializer/node_modules/domelementtype/LICENSE
-| domelementtype | 1.3.0 | *_FORBIDDEN:_* unmatched: node_modules/domelementtype/LICENSE
-| domhandler | 2.1.0 | *_FORBIDDEN:_* unmatched: node_modules/domhandler/LICENSE
-| domutils | 1.1.6 | *_FORBIDDEN:_* unmatched: node_modules/htmlparser2/node_modules/domutils/LICENSE
-| domutils | 1.5.1 | *_FORBIDDEN:_* unmatched: node_modules/domutils/LICENSE
+| domelementtype | 1.1.3 | Incompliant: unmatched: node_modules/dom-serializer/node_modules/domelementtype/LICENSE
+| domelementtype | 1.3.0 | Incompliant: unmatched: node_modules/domelementtype/LICENSE
+| domhandler | 2.1.0 | Incompliant: unmatched: node_modules/domhandler/LICENSE
+| domutils | 1.1.6 | Incompliant: unmatched: node_modules/htmlparser2/node_modules/domutils/LICENSE
+| domutils | 1.5.1 | Incompliant: unmatched: node_modules/domutils/LICENSE
 | ecc-jsbn | 0.1.1 | <<mit>>
 | ee-first | 1.1.1 | <<mit>>
 | electron-to-chromium | 1.2.8 | <<isc>>
@@ -218,7 +218,7 @@
 | enhanced-resolve | 3.1.0 | <<mit>>
 | ensure-posix-path | 1.0.2 | <<isc>>
 | ent | 2.2.0 | <<mit>>
-| entities | 1.1.1 | *_FORBIDDEN:_* bsd like
+| entities | 1.1.1 | <<entities-license>>
 | errno | 0.1.4 | <<mit>>
 | escape-html | 1.0.3 | <<mit>>
 | escape-string-regexp | 1.0.5 | <<mit>>
@@ -376,13 +376,13 @@
 | jsesc | 0.5.0 | <<mit>>
 | jsesc | 1.3.0 | <<mit>>
 | json-loader | 0.5.4 | <<mit>>
-| json-schema | 0.2.3 | *_FORBIDDEN:_* AFLv2.1 (http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43), BSD (http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13)
+| json-schema | 0.2.3 | <<bsd-3-clause>>
 | json-stable-stringify | 1.0.1 | <<mit>>
 | json-stringify-safe | 5.0.1 | <<isc>>
 | json3 | 3.2.6 | <<mit>>
 | json3 | 3.3.2 | <<mit>>
 | jsonfile | 2.4.0 | <<mit>>
-| jsonify | 0.0.0 | *_FORBIDDEN:_* public domain
+| jsonify | 0.0.0 | Incompliant: public domain
 | jsprim | 1.4.0 | <<mit>>
 | karma | 1.2.0 | <<mit>>
 | karma-chrome-launcher | 2.0.0 | <<mit>>
@@ -575,7 +575,7 @@
 | readdirp | 2.1.0 | <<mit>>
 | reduce-css-calc | 1.3.0 | <<mit>>
 | reduce-function-call | 1.0.2 | <<mit>>
-| reflect-metadata | 0.1.10 | *_FORBIDDEN:_* unknown (http://github.com/rbuckton/reflect-metadata/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)
+| reflect-metadata | 0.1.10 | <<apache-2.0>>
 | regenerate | 1.3.2 | <<mit>>
 | regenerator-runtime | 0.10.3 | <<mit>>
 | regex-cache | 0.4.3 | <<mit>>
@@ -592,7 +592,7 @@
 | request | 2.81.0 | <<apache-2.0>>
 | require-directory | 2.1.1 | <<mit>>
 | require-main-filename | 1.0.1 | <<isc>>
-| requirejs | 2.1.17 | *_FORBIDDEN:_* BSD (https://github.com/jrburke/r.js/blob/master/LICENSE), MIT (https://github.com/jrburke/r.js/blob/master/LICENSE)
+| requirejs | 2.1.17 | <<mit>>
 | requires-port | 1.0.0 | <<mit>>
 | resolve | 1.1.7 | <<mit>>
 | resolve | 1.3.2 | <<mit>>
@@ -687,7 +687,7 @@
 | tslint | 3.13.0 | <<apache-2.0>>
 | tty-browserify | 0.0.0 | <<mit>>
 | tunnel-agent | 0.6.0 | <<apache-2.0>>
-| tweetnacl | 0.14.5 | *_FORBIDDEN:_* The Unlicense (http://unlicense.org/)
+| tweetnacl | 0.14.5 | <<unlicense>>
 | type-check | 0.3.2 | <<mit>>
 | type-is | 1.6.14 | <<mit>>
 | typescript | 2.2.1 | <<apache-2.0>>

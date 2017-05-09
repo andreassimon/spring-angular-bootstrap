@@ -1,5 +1,3 @@
-import de.quagilis.license.License
-
 buildscript {
     repositories {
         maven { url 'https://plugins.gradle.org/m2/' }
@@ -14,101 +12,15 @@ buildscript {
 }
 
 apply plugin: 'org.asciidoctor.convert'
-
-ext {
-    allowedLicenses = [
-        ([matchLicense: 'bsd 2 clause or mit or apache 2.0']): License.BSD2(),
-        ([matchLicense: 'bsd 3 clause and mit']): License.MIT(),
-        ([matchLicense: 'BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)']): License.BSD2(),
-        ([matchLicense: 'BSD (http://opensource.org/licenses/BSD-3-Clause)']): License.BSD3(),
-        ([matchLicense: 'BSD 2-clause "Simplified" License (http://www.opensource.org/licenses/BSD-2-Clause)']): License.BSD2(),
-        ([matchLicense: 'BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)']): License.BSD3(),
-        ([matchLicense: 'Creative Commons Attribution 4.0 (http://creativecommons.org/licenses/by/4.0/legalcode)']): License.CC_4_0(),
-        ([matchLicense: 'Do What The F*ck You Want To Public License (http://sam.zoy.org/wtfpl/COPYING)']): License.doWhatTheFuckYouWantPublicLicense(),
-        ([matchLicense: 'ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)']): License.ISC(),
-        ([matchLicense: 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]']): License.LGPL2_1(),
-        ([matchLicense: 'http://www.opensource.org/licenses/mit-license.php[MIT License]']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/array-slice/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/arr-flatten/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http  : //www.opensource.org/licenses/MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/jprichardson/node-fs-extra/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://lp.mit-license.org/)']): License.MIT(),
-        ([matchLicense: 'MIT (http://opensource.org/licenses/MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (http://www.opensource.org/licenses/mit-license.php)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/3rd-Eden/useragent/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/cowboy/node-exit/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/isaacs/nopt/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/braces/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/expand-range/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/is-number/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/repeat-string/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/mklabs/node-fileset/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/shinnn/inline-source-map-comment/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/trentmillar/md5-o-matic/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt)']): License.MIT(),
-        ([matchLicense: 'MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)']): License.MIT(),
-        ([matchLicense: 'MIT License (http://www.opensource.org/licenses/MIT)']): License.MIT(),
-        ([matchLicense: 'http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]']): License.CC0(),
-        ([matchLicense: 'zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)']): License.Zlib(),
-        ([matchLicense: 'MIT (http://creativecommons.org/licenses/MIT/)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/Colingo/date-now/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/Raynos/console-browserify/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/Raynos/function-bind/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/Raynos/to-array/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/aslakhellesoy/eventsource-node/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/fb55/htmlparser2/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://github.com/kriskowal/q/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (http://kit.mit-license.org/)']): License.MIT(),
-        ([matchLicense: 'MIT (http://mths.be/mit)']): License.MIT(),
-        ([matchLicense: 'MIT (http://www.opensource.org/licenses/MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/Gozala/enchain/License.md)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/caolan/async/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/cowboy/node-findup-sync/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/isaacs/rimraf/raw/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jefflembeck/img-stats/blob/master/LICENSE-MIT), MIT License (http://www.opensource.org/licenses/MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/array-unique/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/glob-base/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/is-primitive/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/longest/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/preserve/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/repeat-element/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jonschlinkert/window-size/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/jryans/timers-browserify/blob/master/LICENSE.md)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/niklasvh/base64-arraybuffer/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/regexps/filename-regex/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/tarruda/has/blob/master/LICENSE-MIT)']): License.MIT(),
-        ([matchLicense: 'MIT (https://github.com/thlorenz/deep-is/blob/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://raw.github.com/broofa/node-mime/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'MIT (https://raw.github.com/gkz/prelude-ls/master/LICENSE)']): License.MIT(),
-        ([matchLicense: 'wtfpl or mit']): License.MIT(),
-//        'AFLv2.1 (http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L43), BSD (http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13)'
-        ([matchLicense: 'BSD (http://github.com/estools/estraverse/raw/master/LICENSE.BSD)']): License.BSD2(),
-        ([matchLicense: 'BSD (http://github.com/estools/esutils/raw/master/LICENSE.BSD)']): License.BSD2(),
-        ([matchLicense: 'BSD (http://github.com/hueniverse/sntp/raw/master/LICENSE)']): License.BSD3(),
-//        'BSD (https://github.com/jrburke/r.js/blob/master/LICENSE), MIT (https://github.com/jrburke/r.js/blob/master/LICENSE)'
-        ([matchLicense: 'LGPL (http://www.gnu.org/licenses/lgpl.html)']): License.LGPL3_0(),
-        ([matchLicense: 'MISSING']): License.MISSING(),
-        ([matchLibrary: 'css-select']): License.BSD3(),
-//        'The Unlicense (http://unlicense.org/)'
-//        'public domain'
-//        'unknown (http://github.com/rbuckton/reflect-metadata/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
-//        'unmatched: node_modules/dom-serializer/node_modules/domelementtype/LICENSE'
-//        'unmatched: node_modules/domelementtype/LICENSE'
-//        'unmatched: node_modules/domhandler/LICENSE'
-//        'unmatched: node_modules/domutils/LICENSE'
-//        'unmatched: node_modules/htmlparser2/node_modules/domutils/LICENSE'
-    ]
-}
-
 apply plugin: de.quagilis.license.LicensePlugin
 
 
 licenses {
-    failOnForbiddenLicenses = true
+    failOnForbiddenLicenses = false
 
-    apache2 {
+    license(name: 'Apache License 2.0', reference: 'apache-2.0', licenseFile: file('src/docs/asciidoc/apache-2.0.adoc')) {
+        matchLibrary 'reflect-metadata'
+
         matchLicense 'Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
         matchLicense 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)'
         matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]'
@@ -117,56 +29,122 @@ licenses {
         matchLicense 'http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]'
         matchLicense 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
     }
-}
 
-task allowedLicensesAsciidoc(group: 'Documentation') {
-    doLast {
-      new File("$projectDir/src/docs/asciidoc/allowed-licenses.adoc").text =
-          ((Map<String, License>) allowedLicenses).values().toSet() \
-              .sort { License a, License b -> a.name.compareTo(b.name) } \
-              .collect { " * $it.reference\n" } \
-              .join()
+    license(name: '2-Clause BSD License', reference: 'bsd-2-clause', licenseFile: file('src/docs/asciidoc/bsd-2-clause.adoc')) {
+        matchLicense 'bsd 2 clause or mit or apache 2.0'
+        matchLicense 'BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)'
+        matchLicense 'BSD 2-clause "Simplified" License (http://www.opensource.org/licenses/BSD-2-Clause)'
+        matchLicense 'BSD (http://github.com/estools/estraverse/raw/master/LICENSE.BSD)'
+        matchLicense 'BSD (http://github.com/estools/esutils/raw/master/LICENSE.BSD)'
     }
-}
 
-//task backendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
-//    dependsOn ':backend:generateLicenseReport'
-//
-//    input rootProject.file("backend/build/licenses.tsv")
-//    output file("src/docs/asciidoc/backend-licenses.adoc")
-//    allowedLicenses project.allowedLicenses
-//}
-//
-//task frontendLicenses(type: de.quagilis.license.ProcessLicensesTask) {
-//    input rootProject.file("frontend/licenses.tsv")
-//    output file("src/docs/asciidoc/frontend-licenses.adoc")
-//    allowedLicenses project.allowedLicenses
-//}
+    license(name: '3-Clause BSD License', reference: 'bsd-3-clause', licenseFile: file('src/docs/asciidoc/bsd-3-clause.adoc')) {
+        matchLibrary 'css-select'
+        matchLibrary 'json-schema'
 
-task compileLicenseTexts {
-    doLast {
-        def licenseDocuments = [
-            [ reference: 'apache-2.0', licenseText: file('src/docs/asciidoc/apache-2.0.adoc').text ]
-          , [ reference: 'bsd-2-clause', licenseText: file('src/docs/asciidoc/bsd-2-clause.adoc').text ]
-          , [ reference: 'bsd-3-clause', licenseText: file('src/docs/asciidoc/bsd-3-clause.adoc').text ]
-          , [ reference: 'CC0-1.0-license', licenseText: file('src/docs/asciidoc/cc0-1.0.adoc').text ]
-          , [ reference: 'CC-Attribution-4.0-license', licenseText: file('src/docs/asciidoc/cc-4.0.adoc').text ]
-          , [ reference: 'do-what-the-fuck-you-want-license', licenseText: file('src/docs/asciidoc/do-what-the-fuck-you-want-license.adoc').text ]
-          , [ reference: 'isc', licenseText: file('src/docs/asciidoc/isc.adoc').text ]
-          , [ reference: 'lgpl-2.1-license', licenseText: file('src/docs/asciidoc/lgpl-2.1.adoc').text ]
-          , [ reference: 'lgpl-3.0-license', licenseText: file('src/docs/asciidoc/lgpl-3.0.adoc').text ]
-          , [ reference: 'mit', licenseText: file('src/docs/asciidoc/mit.adoc').text ]
-          , [ reference: 'zlib', licenseText: file('src/docs/asciidoc/zlib.adoc').text ]
-        ]
-        file('src/docs/asciidoc/license-texts.adoc').text = """\
-:leveloffset: +2
-${ licenseDocuments.collect { license ->
-"""[[${license.reference}]]
-${license.licenseText}"""
-}.join('\n') }
-:leveloffset: -2
-"""
+        matchLicense 'BSD (http://opensource.org/licenses/BSD-3-Clause)'
+        matchLicense 'BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)'
+        matchLicense 'BSD (http://github.com/hueniverse/sntp/raw/master/LICENSE)'
     }
+
+    license(name: 'BSD like', reference: 'css-what-license', licenseFile: rootProject.file('frontend/node_modules/css-what/LICENSE')) {
+        matchLibrary 'css-what'
+    }
+
+    license(name: 'BSD like', reference: 'entities-license', licenseFile: rootProject.file('frontend/node_modules/entities/LICENSE')) {
+        matchLibrary 'entities'
+    }
+
+    license(name: 'CC0 1.0 Universal', reference: 'CC0-1.0-license', licenseFile: file('src/docs/asciidoc/cc0-1.0.adoc')) {
+        matchLicense 'http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]'
+    }
+
+    license(name: 'Creative Commons Attribution 4.0', reference: 'CC-Attribution-4.0-license', licenseFile: file('src/docs/asciidoc/cc-4.0.adoc')) {
+        matchLicense 'Creative Commons Attribution 4.0 (http://creativecommons.org/licenses/by/4.0/legalcode)'
+    }
+
+    license(name: 'Do What The F*ck You Want To Public License', reference: 'do-what-the-fuck-you-want-license', licenseFile: file('src/docs/asciidoc/do-what-the-fuck-you-want-license.adoc')) {}
+
+    license(name: 'GNU Lesser General Public License 2.1', reference: 'lgpl-2.1-license', licenseFile: file('src/docs/asciidoc/lgpl-2.1.adoc')) {
+        matchLicense 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
+    }
+
+    license(name: 'GNU Lesser General Public License 3.0', reference: 'lgpl-3.0-license', licenseFile: file('src/docs/asciidoc/lgpl-3.0.adoc')) {
+        matchLibrary 'xmldom'
+    }
+
+    license(name: 'ISC License', reference: 'isc', licenseFile: file('src/docs/asciidoc/isc.adoc')) {
+        matchLicense 'ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)'
+    }
+
+    license(name: 'MIT License', reference: 'mit', licenseFile: file('src/docs/asciidoc/mit.adoc')) {
+        matchLibrary 'requirejs'
+
+        matchLicense 'bsd 3 clause and mit'
+        matchLicense 'http://www.opensource.org/licenses/mit-license.php[MIT License]'
+        matchLicense 'MIT (https://github.com/jonschlinkert/array-slice/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/arr-flatten/blob/master/LICENSE)'
+        matchLicense 'MIT (http  : //www.opensource.org/licenses/MIT)'
+        matchLicense 'MIT (http://github.com/isaacs/minimatch/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/isaacs/node-lru-cache/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/jprichardson/node-fs-extra/raw/master/LICENSE)'
+        matchLicense 'MIT (http://lp.mit-license.org/)'
+        matchLicense 'MIT (http://opensource.org/licenses/MIT)'
+        matchLicense 'MIT (http://www.opensource.org/licenses/mit-license.php)'
+        matchLicense 'MIT (https://github.com/3rd-Eden/useragent/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/cowboy/node-exit/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/isaacs/nopt/raw/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/braces/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/expand-range/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/is-number/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/repeat-string/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/mklabs/node-fileset/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/shinnn/inline-source-map-comment/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/trentmillar/md5-o-matic/blob/master/LICENSE)'
+        matchLicense 'MIT (https://raw.github.com/cthackers/adm-zip/master/MIT-LICENSE.txt)'
+        matchLicense 'MIT (https://raw.githubusercontent.com/unclechu/node-deep-extend/master/LICENSE), MIT License (http://www.opensource.org/licenses/MIT)'
+        matchLicense 'MIT License (http://www.opensource.org/licenses/MIT)'
+        matchLicense 'MIT (http://creativecommons.org/licenses/MIT/)'
+        matchLicense 'MIT (http://github.com/Colingo/date-now/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/Raynos/console-browserify/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/Raynos/function-bind/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/Raynos/to-array/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/aslakhellesoy/eventsource-node/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/fb55/htmlparser2/raw/master/LICENSE)'
+        matchLicense 'MIT (http://github.com/kriskowal/q/raw/master/LICENSE)'
+        matchLicense 'MIT (http://kit.mit-license.org/)'
+        matchLicense 'MIT (http://mths.be/mit)'
+        matchLicense 'MIT (http://www.opensource.org/licenses/MIT)'
+        matchLicense 'MIT (https://github.com/Gozala/enchain/License.md)'
+        matchLicense 'MIT (https://github.com/caolan/async/raw/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/cowboy/node-findup-sync/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/isaacs/rimraf/raw/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jefflembeck/img-stats/blob/master/LICENSE-MIT), MIT License (http://www.opensource.org/licenses/MIT)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/array-unique/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/glob-base/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/is-primitive/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/longest/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/preserve/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/repeat-element/blob/master/LICENSE)'
+        matchLicense 'MIT (https://github.com/jonschlinkert/window-size/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/jryans/timers-browserify/blob/master/LICENSE.md)'
+        matchLicense 'MIT (https://github.com/niklasvh/base64-arraybuffer/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/regexps/filename-regex/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/tarruda/has/blob/master/LICENSE-MIT)'
+        matchLicense 'MIT (https://github.com/thlorenz/deep-is/blob/master/LICENSE)'
+        matchLicense 'MIT (https://raw.github.com/broofa/node-mime/master/LICENSE)'
+        matchLicense 'MIT (https://raw.github.com/gkz/prelude-ls/master/LICENSE)'
+        matchLicense 'wtfpl or mit'
+    }
+
+    license(name: 'The Unlicense', reference: 'unlicense', licenseFile: file('src/docs/asciidoc/unlicense.adoc')) {
+        matchLicense 'The Unlicense (http://unlicense.org/)'
+    }
+
+    license(name: 'The zlib/libpng License', reference: 'zlib', licenseFile: file('src/docs/asciidoc/zlib.adoc')) {
+        matchLicense 'zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)'
+    }
+
 }
 
 asciidoctor {

@@ -1,11 +1,9 @@
 package de.quagilis.license
 
-import groovy.transform.Immutable
+interface Library {
 
-@Immutable
-class Library {
-    String name
-    String version
-    String licenseReference
+    String getName()
+
+    boolean isCompliant()
+
 }
-

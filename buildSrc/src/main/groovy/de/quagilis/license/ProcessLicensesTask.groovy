@@ -8,15 +8,11 @@ import org.gradle.api.tasks.TaskAction
 
 class ProcessLicensesTask extends DefaultTask {
 
-    public static final String MATCH_LICENSE = 'matchLicense'
-
     @InputFile
     File input
 
     @OutputFile
     File output
-
-    Map<Map<String, String>, License> allowedLicenses = [:]
 
     ProcessLicensesTask() {
         group = 'Documentation'
@@ -26,52 +22,71 @@ class ProcessLicensesTask extends DefaultTask {
     @TaskAction
     def processLicenses() {
         List<Library> libraries = input.collect { line ->
-            def matcher = (line =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
-            if (!matcher.matches()) {
-                throw new RuntimeException("Cannot match '$line'")
+            checkForCompliance(parseLibrary(line))
+        }
+
+        List<IncompliantLibrary> incompliantLibraries = libraries.findAll { Library it -> !it.isCompliant()}
+
+        if (!incompliantLibraries.empty) {
+            if(project.licenses.failOnForbiddenLicenses) {
+                logger.error listIncompliantLibraries(incompliantLibraries)
+                throw new RuntimeException('Found incompliant libraries')
+            } else {
+                println listIncompliantLibraries(incompliantLibraries)
             }
-            return new Library(
-                name: matcher[0][1] as String,
-                version: matcher[0][2] as String,
-                licenseReference: normalizeLicenses(matcher[0][1] as String, matcher[0][3] as String, project.licenses.failOnForbiddenLicenses).reference
-            )
-        }.sort { Library a, Library b -> (a.name <=> b.name) }
+        }
 
         output.text = toAsciidoctor(libraries)
     }
 
-    String toAsciidoctor(List<Library> libraries) {
+    String listIncompliantLibraries(List<IncompliantLibrary> incompliantLibraries) {
+        """Found incompliant libraries:
+${ incompliantLibraries.collect { IncompliantLibrary it -> " - '$it.name' $it.version uses incompliant license '$it.licenseString'" }.join("\n") }
+"""
+    }
+
+    static LibraryDescription parseLibrary(String library) {
+        def matcher = (library =~ /([^\t]*) \(([^\)]*)\)\t([^\t]*).*/)
+        new LibraryDescription(
+            name: matcher[0][1] as String,
+            version: matcher[0][2] as String,
+            license: matcher[0][3] as String
+        )
+    }
+
+    Library checkForCompliance(LibraryDescription libraryDescription) {
+        License license = project.licenses.findLicense(libraryDescription)
+        if (license) {
+            return new CompliantLibrary(
+                libraryDescription.name,
+                libraryDescription.version,
+                license
+            )
+        } else {
+            return new IncompliantLibrary(
+                libraryDescription.name,
+                libraryDescription.version,
+                libraryDescription.license
+            )
+        }
+    }
+
+    static String toAsciidoctor(List<Library> libraries) {
         """\
 [cols="5,2,6",options="header"]
 |===
 | Name | Version | Lizenz
-${ libraries.collect { "| ${it.name} | ${it.version} | ${it.licenseReference}" }.join('\n') }
+${ libraries.sort { Library a, Library b -> (a.name <=> b.name) }.collect { toAsciidoctor(it) }.join('\n') }
 |===
 """
     }
 
-    License normalizeLicenses(String library, String licenses, boolean failOnForbiddenLicense) {
-        if(!findMapping(allowedLicenses, licenses, library)) {
-            if(failOnForbiddenLicense) {
-                throw new RuntimeException("'$library' uses forbidden license '${licenses}'")
-            } else {
-                return License.forbidden(licenses)
-            }
-        }
-        return findMapping(allowedLicenses, licenses, library).value
+    static String toAsciidoctor(CompliantLibrary library) {
+        "| ${library.name} | ${library.version} | <<${library.licenseReference}>>"
     }
 
-    Map.Entry<Map<String, String>, License> findMapping(Map<Map<String, String>, License> allowedLicenses, String licenses, String library) {
-        allowedLicenses.find { key, value -> matchesLicense(key, licenses, library) }
-    }
-
-    boolean matchesLicense(Map<String, String> matcher, String licenses, String library) {
-        if (matcher.containsKey(MATCH_LICENSE)) {
-            return matcher[MATCH_LICENSE] == licenses
-        }
-        if (matcher.containsKey('matchLibrary')) {
-            return matcher['matchLibrary'] == library
-        }
+    static String toAsciidoctor(IncompliantLibrary library) {
+        "| ${library.name} | ${library.version} | Incompliant: ${library.licenseString}"
     }
 
 }
