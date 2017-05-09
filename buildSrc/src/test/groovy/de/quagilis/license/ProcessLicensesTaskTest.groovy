@@ -27,7 +27,7 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
     // TODO Handle parsing lines not matching
 
     void testMatchCompliantLicense() {
-        def expectedLibraryName = 'Logback Classic Module'
+        def expectedLibraryName = 'Library Name'
         def expectedLibraryVersion = '1.1.11'
         def licenseString = 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
         def expectedLicense = LGPL2_1()
@@ -53,7 +53,7 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
     }
 
     void testMatchIncompliantLicense() {
-        def expectedLibraryName = 'Logback Classic Module'
+        def expectedLibraryName = 'Library Name'
         def expectedLibraryVersion = '1.1.11'
         def licenseString = 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
 
@@ -70,7 +70,7 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
     }
 
     void testMatchLibrary() {
-        def expectedLibraryName = 'Logback Classic Module'
+        def expectedLibraryName = 'Library Name'
         def expectedLibraryVersion = '1.1.11'
         def licenseString = 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
         def expectedLicense = LGPL2_1()
@@ -89,4 +89,27 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
             expectedLicense
         )
     }
+
+    void testMatchIncompliantLibraryVersion() {
+        def expectedLibraryName = 'Library Name'
+        def compliantLibraryVersion = '1.1.11'
+        def incompliantLibraryVersion = '1.2.0'
+        def licenseString = 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
+        def expectedLicense = LGPL2_1()
+
+        project.licenses.license(expectedLicense) {
+            matchLibrary expectedLibraryName, compliantLibraryVersion
+        }
+
+        assert project.frontendLicenses.checkForCompliance(new LibraryDescription(
+            name: expectedLibraryName,
+            version: incompliantLibraryVersion,
+            license: licenseString
+        )) == new IncompliantLibrary(
+            expectedLibraryName,
+            incompliantLibraryVersion,
+            licenseString
+        )
+    }
+
 }

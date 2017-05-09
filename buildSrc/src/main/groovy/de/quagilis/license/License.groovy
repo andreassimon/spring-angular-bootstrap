@@ -19,6 +19,10 @@ class License {
         matchers << new LibraryNameMatcher(libraryName)
     }
 
+    def matchLibrary(String libraryName, String libraryVersion) {
+        matchers << new LibraryNameVersionMatcher(libraryName, libraryVersion)
+    }
+
     boolean appliesTo(LibraryDescription libraryDescription) {
         matchers.find { it.matches libraryDescription }
     }
