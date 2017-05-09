@@ -18,7 +18,7 @@ apply plugin: de.quagilis.license.LicensePlugin
 licenses {
     failOnForbiddenLicenses = false
 
-    license(name: 'Apache License 2.0', reference: 'apache-2.0', licenseFile: file('src/docs/asciidoc/apache-2.0.adoc')) {
+    license(name: 'Apache License 2.0', reference: 'apache-2.0', asciidocText: file('src/docs/asciidoc/apache-2.0.adoc')) {
         matchLibrary 'reflect-metadata'
 
         matchLicense 'Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
@@ -30,7 +30,7 @@ licenses {
         matchLicense 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
     }
 
-    license(name: '2-Clause BSD License', reference: 'bsd-2-clause', licenseFile: file('src/docs/asciidoc/bsd-2-clause.adoc')) {
+    license(name: '2-Clause BSD License', reference: 'bsd-2-clause', asciidocText: file('src/docs/asciidoc/bsd-2-clause.adoc')) {
         matchLicense 'bsd 2 clause or mit or apache 2.0'
         matchLicense 'BSD (http://github.com/facebook/esprima/raw/master/LICENSE.BSD)'
         matchLicense 'BSD 2-clause "Simplified" License (http://www.opensource.org/licenses/BSD-2-Clause)'
@@ -38,7 +38,7 @@ licenses {
         matchLicense 'BSD (http://github.com/estools/esutils/raw/master/LICENSE.BSD)'
     }
 
-    license(name: '3-Clause BSD License', reference: 'bsd-3-clause', licenseFile: file('src/docs/asciidoc/bsd-3-clause.adoc')) {
+    license(name: '3-Clause BSD License', reference: 'bsd-3-clause', asciidocText: file('src/docs/asciidoc/bsd-3-clause.adoc')) {
         matchLibrary 'css-select'
         matchLibrary 'json-schema'
 
@@ -47,37 +47,37 @@ licenses {
         matchLicense 'BSD (http://github.com/hueniverse/sntp/raw/master/LICENSE)'
     }
 
-    license(name: 'BSD like', reference: 'css-what-license', licenseFile: rootProject.file('frontend/node_modules/css-what/LICENSE')) {
+    license(name: 'BSD like css-what License', reference: 'css-what-license', plainText: rootProject.file('frontend/node_modules/css-what/LICENSE')) {
         matchLibrary 'css-what'
     }
 
-    license(name: 'BSD like', reference: 'entities-license', licenseFile: rootProject.file('frontend/node_modules/entities/LICENSE')) {
+    license(name: 'BSD like entities License', reference: 'entities-license', plainText: rootProject.file('frontend/node_modules/entities/LICENSE')) {
         matchLibrary 'entities'
     }
 
-    license(name: 'CC0 1.0 Universal', reference: 'CC0-1.0-license', licenseFile: file('src/docs/asciidoc/cc0-1.0.adoc')) {
+    license(name: 'CC0 1.0 Universal', reference: 'CC0-1.0-license', asciidocText: file('src/docs/asciidoc/cc0-1.0.adoc')) {
         matchLicense 'http://repository.jboss.org/licenses/cc0-1.0.txt[Public Domain]'
     }
 
-    license(name: 'Creative Commons Attribution 4.0', reference: 'CC-Attribution-4.0-license', licenseFile: file('src/docs/asciidoc/cc-4.0.adoc')) {
+    license(name: 'Creative Commons Attribution 4.0', reference: 'CC-Attribution-4.0-license', asciidocText: file('src/docs/asciidoc/cc-4.0.adoc')) {
         matchLicense 'Creative Commons Attribution 4.0 (http://creativecommons.org/licenses/by/4.0/legalcode)'
     }
 
-    license(name: 'Do What The F*ck You Want To Public License', reference: 'do-what-the-fuck-you-want-license', licenseFile: file('src/docs/asciidoc/do-what-the-fuck-you-want-license.adoc')) {}
+    license(name: 'Do What The F*ck You Want To Public License', reference: 'do-what-the-fuck-you-want-license', asciidocText: file('src/docs/asciidoc/do-what-the-fuck-you-want-license.adoc')) {}
 
-    license(name: 'GNU Lesser General Public License 2.1', reference: 'lgpl-2.1-license', licenseFile: file('src/docs/asciidoc/lgpl-2.1.adoc')) {
+    license(name: 'GNU Lesser General Public License 2.1', reference: 'lgpl-2.1-license', asciidocText: file('src/docs/asciidoc/lgpl-2.1.adoc')) {
         matchLicense 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
     }
 
-    license(name: 'GNU Lesser General Public License 3.0', reference: 'lgpl-3.0-license', licenseFile: file('src/docs/asciidoc/lgpl-3.0.adoc')) {
+    license(name: 'GNU Lesser General Public License 3.0', reference: 'lgpl-3.0-license', asciidocText: file('src/docs/asciidoc/lgpl-3.0.adoc')) {
         matchLibrary 'xmldom'
     }
 
-    license(name: 'ISC License', reference: 'isc', licenseFile: file('src/docs/asciidoc/isc.adoc')) {
+    license(name: 'ISC License', reference: 'isc', asciidocText: file('src/docs/asciidoc/isc.adoc')) {
         matchLicense 'ISC License (http://www.isc.org/software/license, http://www.opensource.org/licenses/ISC)'
     }
 
-    license(name: 'MIT License', reference: 'mit', licenseFile: file('src/docs/asciidoc/mit.adoc')) {
+    license(name: 'MIT License', reference: 'mit', asciidocText: file('src/docs/asciidoc/mit.adoc')) {
         matchLibrary 'requirejs'
 
         matchLicense 'bsd 3 clause and mit'
@@ -137,11 +137,11 @@ licenses {
         matchLicense 'wtfpl or mit'
     }
 
-    license(name: 'The Unlicense', reference: 'unlicense', licenseFile: file('src/docs/asciidoc/unlicense.adoc')) {
+    license(name: 'The Unlicense', reference: 'unlicense', asciidocText: file('src/docs/asciidoc/unlicense.adoc')) {
         matchLicense 'The Unlicense (http://unlicense.org/)'
     }
 
-    license(name: 'The zlib/libpng License', reference: 'zlib', licenseFile: file('src/docs/asciidoc/zlib.adoc')) {
+    license(name: 'The zlib/libpng License', reference: 'zlib', asciidocText: file('src/docs/asciidoc/zlib.adoc')) {
         matchLicense 'zlib License (http://www.zlib.net/zlib_license.html, http://www.opensource.org/licenses/Zlib)'
     }
 

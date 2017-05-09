@@ -225,6 +225,7 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 [[css-what-license]]
+= BSD like css-what License
 Copyright (c) Felix Böhm
 All rights reserved.
 
@@ -238,6 +239,7 @@ THIS IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRE
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 [[entities-license]]
+= BSD like entities License
 Copyright (c) Felix Böhm
 All rights reserved.
 
