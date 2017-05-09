@@ -22,10 +22,10 @@ class ProcessLicensesTask extends DefaultTask {
     @TaskAction
     def processLicenses() {
         List<Library> libraries = input.collect { line ->
-            checkForCompliance(parseLibrary(line))
+            project.licenses.assignLicense(parseLibrary(line))
         }
 
-        List<IncompliantLibrary> incompliantLibraries = libraries.findAll { Library it -> !it.isCompliant()}
+        List<Library> incompliantLibraries = libraries.findAll { Library it -> it.isIncompliant()}
 
         if (!incompliantLibraries.empty) {
             if(project.licenses.failOnForbiddenLicenses) {
@@ -36,12 +36,12 @@ class ProcessLicensesTask extends DefaultTask {
             }
         }
 
-        output.text = toAsciidoctor(libraries)
+        output.text = Asciidoctor.toAsciidoctor(libraries)
     }
 
-    String listIncompliantLibraries(List<IncompliantLibrary> incompliantLibraries) {
+    String listIncompliantLibraries(List<UnlicensedLibrary> incompliantLibraries) {
         """Found incompliant libraries:
-${ incompliantLibraries.collect { IncompliantLibrary it -> " - '$it.name' $it.version uses incompliant license '$it.licenseString'" }.join("\n") }
+${ incompliantLibraries.collect { UnlicensedLibrary it -> " - '$it.name' $it.version uses incompliant license '$it.licenseString'" }.join("\n") }
 """
     }
 
@@ -52,41 +52,6 @@ ${ incompliantLibraries.collect { IncompliantLibrary it -> " - '$it.name' $it.ve
             version: matcher[0][2] as String,
             license: matcher[0][3] as String
         )
-    }
-
-    Library checkForCompliance(LibraryDescription libraryDescription) {
-        License license = project.licenses.findLicense(libraryDescription)
-        if (license) {
-            return new CompliantLibrary(
-                libraryDescription.name,
-                libraryDescription.version,
-                license
-            )
-        } else {
-            return new IncompliantLibrary(
-                libraryDescription.name,
-                libraryDescription.version,
-                libraryDescription.license
-            )
-        }
-    }
-
-    static String toAsciidoctor(List<Library> libraries) {
-        """\
-[cols="5,2,6",options="header"]
-|===
-| Name | Version | Lizenz
-${ libraries.sort { Library a, Library b -> (a.name <=> b.name) }.collect { toAsciidoctor(it) }.join('\n') }
-|===
-"""
-    }
-
-    static String toAsciidoctor(CompliantLibrary library) {
-        "| ${library.name} | ${library.version} | <<${library.licenseReference}>>"
-    }
-
-    static String toAsciidoctor(IncompliantLibrary library) {
-        "| ${library.name} | ${library.version} | Incompliant: ${library.licenseString}"
     }
 
 }

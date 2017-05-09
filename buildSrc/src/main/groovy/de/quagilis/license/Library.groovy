@@ -6,4 +6,10 @@ interface Library {
 
     boolean isCompliant()
 
+    boolean isQuestionable()
+
+    boolean isIncompliant()
+
+    boolean hasLicenseText()
+
 }

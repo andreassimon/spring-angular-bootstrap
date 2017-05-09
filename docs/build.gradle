@@ -16,18 +16,16 @@ apply plugin: de.quagilis.license.LicensePlugin
 
 
 licenses {
-    failOnForbiddenLicenses = false
+    failOnForbiddenLicenses = true
 
     license(name: 'Apache License 2.0', reference: 'apache-2.0', asciidocText: file('src/docs/asciidoc/apache-2.0.adoc')) {
         matchLibrary 'reflect-metadata'
 
         matchLicense 'Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
-        matchLicense 'Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html)'
         matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[The Apache Software License, Version 2.0]'
         matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[Apache Software Licenses]'
         matchLicense 'http://www.apache.org/licenses/LICENSE-2.0.txt[Apache License, Version 2.0]'
         matchLicense 'http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]'
-        matchLicense 'unknown (http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE), Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0, http://www.opensource.org/licenses/Apache-2.0)'
     }
 
     license(name: '2-Clause BSD License', reference: 'bsd-2-clause', asciidocText: file('src/docs/asciidoc/bsd-2-clause.adoc')) {
@@ -45,6 +43,34 @@ licenses {
         matchLicense 'BSD (http://opensource.org/licenses/BSD-3-Clause)'
         matchLicense 'BSD 3-clause "New" or "Revised" License (http://www.opensource.org/licenses/BSD-3-Clause)'
         matchLicense 'BSD (http://github.com/hueniverse/sntp/raw/master/LICENSE)'
+    }
+
+    questionableLicense('MISSING') {
+        matchLibrary 'base64id', '0.1.0'
+    }
+
+    questionableLicense('public domain') {
+        matchLibrary 'jsonify', '0.0.0'
+    }
+
+    questionableLicense(name: 'domelementtype 1.1.3 License', reference: 'domelementtype-1.1.3-license', plainText: rootProject.file('frontend/node_modules/dom-serializer/node_modules/domelementtype/LICENSE')) {
+        matchLibrary 'domelementtype', '1.1.3'
+    }
+
+    questionableLicense(name: 'domelementtype 1.3.0 License', reference: 'domelementtype-1.3.0-license', plainText: rootProject.file('frontend/node_modules/domelementtype/LICENSE')) {
+        matchLibrary 'domelementtype', '1.3.0'
+    }
+
+    questionableLicense(name: 'domhandler 2.1.0 License', reference: 'domhandler-2.1.0-license', plainText: rootProject.file('frontend/node_modules/domhandler/LICENSE')) {
+        matchLibrary 'domhandler', '2.1.0'
+    }
+
+    questionableLicense(name: 'domutils 1.1.6 License', reference: 'domutils-1.1.6-license', plainText: rootProject.file('frontend/node_modules/htmlparser2/node_modules/domutils/LICENSE')) {
+        matchLibrary 'domutils', '1.1.6'
+    }
+
+    questionableLicense(name: 'domutils 1.5.1 License', reference: 'domutils-1.5.1-license', plainText: rootProject.file('frontend/node_modules/domutils/LICENSE')) {
+        matchLibrary 'domutils', '1.5.1'
     }
 
     license(name: 'BSD like css-what License', reference: 'css-what-license', plainText: rootProject.file('frontend/node_modules/css-what/LICENSE')) {
@@ -149,7 +175,8 @@ licenses {
 
 asciidoctor {
     group 'Documentation'
-    dependsOn allowedLicensesAsciidoc
+    dependsOn compliantLicensesAsciidoc
+    dependsOn questionableLibrariesAsciidoc
     dependsOn backendLicenses
     dependsOn frontendLicenses
     dependsOn compileLicenseTexts

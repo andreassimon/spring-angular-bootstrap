@@ -1,13 +1,7 @@
 package de.quagilis.license
 
-import groovy.transform.Immutable
 
-
-@Immutable
-class License {
-    String name
-    String reference
-    String licenseText
+abstract class License {
 
     private Collection<Matcher> matchers = []
 
@@ -26,5 +20,17 @@ class License {
     boolean appliesTo(LibraryDescription libraryDescription) {
         matchers.find { it.matches libraryDescription }
     }
+
+    boolean hasText() {
+        null != getLicenseText() && !getLicenseText().empty
+    }
+
+    abstract String getName()
+
+    abstract String getLicenseText()
+
+    abstract boolean isCompliant()
+
+    abstract boolean isQuestionable()
 
 }

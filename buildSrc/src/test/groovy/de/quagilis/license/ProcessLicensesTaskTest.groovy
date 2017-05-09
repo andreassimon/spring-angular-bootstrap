@@ -36,11 +36,11 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
             matchLicense licenseString
         }
 
-        assert project.frontendLicenses.checkForCompliance(new LibraryDescription(
+        assert project.licenses.assignLicense(new LibraryDescription(
             name: expectedLibraryName,
             version: expectedLibraryVersion,
             license: licenseString
-        )) == new CompliantLibrary(
+        )) == new LicensedLibrary(
             expectedLibraryName,
             expectedLibraryVersion,
             expectedLicense
@@ -48,8 +48,8 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
 
     }
 
-    static License LGPL2_1() {
-        return new License(name: 'GNU Lesser General Public License 2.1', reference: 'lgpl-2.1-license')
+    static CompliantLicense LGPL2_1() {
+        return new CompliantLicense(name: 'GNU Lesser General Public License 2.1', reference: 'lgpl-2.1-license')
     }
 
     void testMatchIncompliantLicense() {
@@ -57,11 +57,11 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
         def expectedLibraryVersion = '1.1.11'
         def licenseString = 'http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html[GNU Lesser General Public License]'
 
-        assert project.frontendLicenses.checkForCompliance(new LibraryDescription(
+        assert project.licenses.assignLicense(new LibraryDescription(
             name: expectedLibraryName,
             version: expectedLibraryVersion,
             license: licenseString
-        )) == new IncompliantLibrary(
+        )) == new UnlicensedLibrary(
             expectedLibraryName,
             expectedLibraryVersion,
             licenseString
@@ -79,11 +79,11 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
             matchLibrary expectedLibraryName
         }
 
-        assert project.frontendLicenses.checkForCompliance(new LibraryDescription(
+        assert project.licenses.assignLicense(new LibraryDescription(
             name: expectedLibraryName,
             version: expectedLibraryVersion,
             license: licenseString
-        )) == new CompliantLibrary(
+        )) == new LicensedLibrary(
             expectedLibraryName,
             expectedLibraryVersion,
             expectedLicense
@@ -101,11 +101,11 @@ class ProcessLicensesTaskTest extends GroovyTestCase {
             matchLibrary expectedLibraryName, compliantLibraryVersion
         }
 
-        assert project.frontendLicenses.checkForCompliance(new LibraryDescription(
+        assert project.licenses.assignLicense(new LibraryDescription(
             name: expectedLibraryName,
             version: incompliantLibraryVersion,
             license: licenseString
-        )) == new IncompliantLibrary(
+        )) == new UnlicensedLibrary(
             expectedLibraryName,
             incompliantLibraryVersion,
             licenseString

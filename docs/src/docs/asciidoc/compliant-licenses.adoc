@@ -1,0 +1,14 @@
+ * <<apache-2.0>>
+ * <<bsd-2-clause>>
+ * <<bsd-3-clause>>
+ * <<css-what-license>>
+ * <<entities-license>>
+ * <<CC0-1.0-license>>
+ * <<CC-Attribution-4.0-license>>
+ * <<do-what-the-fuck-you-want-license>>
+ * <<lgpl-2.1-license>>
+ * <<lgpl-3.0-license>>
+ * <<isc>>
+ * <<mit>>
+ * <<unlicense>>
+ * <<zlib>>

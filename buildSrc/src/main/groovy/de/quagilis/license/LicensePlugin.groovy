@@ -6,6 +6,9 @@ import org.gradle.api.Project
 
 class LicensePlugin implements Plugin<Project> {
 
+
+    public static final String DOCUMENTATION = 'Documentation'
+
     void apply(Project project) {
         project.extensions.create("licenses", LicensePluginExtension)
 
@@ -21,9 +24,9 @@ class LicensePlugin implements Plugin<Project> {
             task.output = project.file("src/docs/asciidoc/frontend-licenses.adoc")
         })
 
-        project.tasks.create('allowedLicensesAsciidoc', { task ->
-            task.group = 'Documentation'
-            def taskOutput = project.file("src/docs/asciidoc/allowed-licenses.adoc")
+        project.tasks.create('compliantLicensesAsciidoc', { task ->
+            task.group = DOCUMENTATION
+            def taskOutput = project.file("src/docs/asciidoc/compliant-licenses.adoc")
             task.doLast {
                taskOutput.text =
                    project.licenses.compliantLicenses \
@@ -32,19 +35,34 @@ class LicensePlugin implements Plugin<Project> {
             }
         })
 
+        project.tasks.create('questionableLibrariesAsciidoc', { task ->
+            task.group = DOCUMENTATION
+
+            def taskOutput = project.file("src/docs/asciidoc/questionable-libraries.adoc")
+            task.doLast {
+                taskOutput.text = Asciidoctor.toAsciidoctor(project.licenses.questionableLibraries)
+            }
+        })
+
         project.tasks.create('compileLicenseTexts', { task ->
             task.doLast {
                 project.file('src/docs/asciidoc/license-texts.adoc').text = """\
 :leveloffset: +2
-${ project.licenses.compliantLicenses.collect { license ->
-                    """[[${license.reference}]]
-${ license.licenseText }"""
-                }.join('\n') }
+${ project.licenses.licenses.collect { license -> toAsciidoc(license) }.findAll().join('\n') }
 :leveloffset: -2
 """
             }
         })
 
+    }
+
+    String toAsciidoc(license) {
+        if(license.hasText()) {
+            return """[[${license.reference}]]
+${license.licenseText}"""
+        } else {
+            return null
+        }
     }
 
 }

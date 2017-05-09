@@ -4,20 +4,20 @@ import groovy.transform.Immutable
 
 
 @Immutable
-class CompliantLibrary implements Library {
+class CompliantLicense extends License {
 
     String name
-    String version
-    License license
-
-    String getLicenseReference() {
-        license?.reference
-    }
+    String reference
+    String licenseText
 
     @Override
     boolean isCompliant() {
         return true
     }
 
-}
+    @Override
+    boolean isQuestionable() {
+        return false
+    }
 
+}

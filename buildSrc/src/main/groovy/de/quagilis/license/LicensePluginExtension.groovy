@@ -8,11 +8,24 @@ class LicensePluginExtension {
 
     boolean failOnForbiddenLicenses = false
 
-    final List<License> compliantLicenses = []
+    final List<License> licenses = []
+    final List<LicensedLibrary> licensedLibraries = []
 
 
     void license(Map<String, ?> licenseAttributes, Closure matchers) {
-        license(new License(
+        license(new CompliantLicense(
+            name: licenseAttributes.name,
+            reference: licenseAttributes.reference,
+            licenseText: licenseText(licenseAttributes)
+        ), matchers)
+    }
+
+    void questionableLicense(String licenseName, Closure matchers) {
+        license(new QuestionableLicense( name: licenseName ), matchers)
+    }
+
+    void questionableLicense(Map<String, ?> licenseAttributes, Closure matchers) {
+        license(new QuestionableLicense(
             name: licenseAttributes.name,
             reference: licenseAttributes.reference,
             licenseText: licenseText(licenseAttributes)
@@ -30,15 +43,42 @@ class LicensePluginExtension {
     }
 
     void license(License license, Closure matchers) {
-        compliantLicenses << license
+        licenses << license
         matchers.delegate = license
         matchers()
     }
 
-    License findLicense(LibraryDescription libraryDescription) {
-        compliantLicenses.find { License license ->
+    Library assignLicense(LibraryDescription libraryDescription) {
+        License license = findMatchingLicense(libraryDescription)
+        if (license) {
+            LicensedLibrary library = new LicensedLibrary(
+                libraryDescription.name,
+                libraryDescription.version,
+                license
+            )
+            licensedLibraries << library
+            return library
+        } else {
+            return new UnlicensedLibrary(
+                libraryDescription.name,
+                libraryDescription.version,
+                libraryDescription.license
+            )
+        }
+    }
+
+    License findMatchingLicense(LibraryDescription libraryDescription) {
+        licenses.find { License license ->
             license.appliesTo(libraryDescription)
         }
+    }
+
+    List<CompliantLicense> getCompliantLicenses() {
+        licenses.findAll { License it -> it.isCompliant() } as List<CompliantLicense>
+    }
+
+    List<LicensedLibrary> getQuestionableLibraries() {
+        licensedLibraries.findAll { it.isQuestionable() }
     }
 
 }

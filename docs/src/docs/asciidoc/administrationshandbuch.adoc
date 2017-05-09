@@ -34,10 +34,11 @@ $ dnf install git   # ab Fedora 22 aufwärts
 
 === Zugelassene Lizenzen
 
-include::allowed-licenses.adoc[]
+include::compliant-licenses.adoc[]
 
 === Zu kontrollierende Lizenzen
-'base64id' 0.1.0 uses incompliant license 'MISSING'
+
+include::questionable-libraries.adoc[]
 
 === Backend
 
